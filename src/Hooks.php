@@ -25,11 +25,15 @@ class Hooks
 	protected function add($hook, $function, $permanent = true)
 	{
 		$this->collection>addValue([$hook, $function, $permanent]);
+
+		return $this;
 	}
 
 	public function __construct()
 	{
 		$collection = new Collection();
+
+		return $this;
 	}
 
 }
