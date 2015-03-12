@@ -24,7 +24,7 @@ class Hooks
 
 	protected function add($hook, $function, $permanent = true)
 	{
-		$this->collection>addValue($hook, $function, $permanent);
+		$this->collection>addValue([$hook, $function, $permanent]);
 	}
 
 	public function __construct()
