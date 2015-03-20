@@ -6,7 +6,7 @@ namespace ModHelper;
  * @package ModHelper
  * @since 1.0
  */
-class Collection implements IteratorAggregate
+class Collection implements \IteratorAggregate
 {
 	private $items = array();
 
