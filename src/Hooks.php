@@ -13,7 +13,7 @@ class Hooks
 
 	public function execute($add)
 	{
-		foreach ($collection as list ($hook, $function, $permanent)) {
+		foreach ($this->collection as list ($hook, $function, $permanent)) {
 			if ($add) {
 				add_integration_function($hook, $function, $permanent);
 			} else {
@@ -22,16 +22,16 @@ class Hooks
 		}
 	}
 
-	protected function add($hook, $function, $permanent = true)
+	public function add($hook, $function, $permanent = true)
 	{
-		$this->collection>addValue([$hook, $function, $permanent]);
+		$this->collection->addValue([$hook, $function, $permanent]);
 
 		return $this;
 	}
 
 	public function __construct()
 	{
-		$collection = new Collection();
+		$this->collection = new Collection();
 
 		return $this;
 	}
