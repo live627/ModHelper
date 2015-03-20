@@ -25,6 +25,8 @@ class Psr4AutoloaderClass
 	public function register()
 	{
 		spl_autoload_register(array($this, 'loadClass'));
+
+		return $this;
 	}
 
 	/**
@@ -54,6 +56,8 @@ class Psr4AutoloaderClass
 		} else {
 			array_push($this->prefixes[$prefix], $base_dir);
 		}
+
+		return $this;
 	}
 
 	/**
