@@ -38,11 +38,11 @@ abstract class Menu
 	 * @access public
 	 * @return void
 	 */
-
 	public function addArea($id, $area)
 	{
 		$this->areas->addValue([$id => $areas]);
 	}
+
 	/**
 	 * Adds an option to the menu
 	 *
