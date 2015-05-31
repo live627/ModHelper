@@ -43,6 +43,16 @@ abstract class Menu
 	{
 		$this->areas->addValue([$id => $areas]);
 	}
+	/**
+	 * Adds an option to the menu
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function addOption($id, $val)
+	{
+		$this->options->addValue([$id => $val]);
+	}
 
 	public function __construct($id, $title)
 	{
