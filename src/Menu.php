@@ -60,8 +60,6 @@ abstract class Menu
 		$this->title = $title;
 		$this->options = new Collection();
 		$this->areas = new Collection();
-
-		return $this;
 	}
 
 }
