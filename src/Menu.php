@@ -33,12 +33,16 @@ abstract class Menu
 	}
 
 	/**
-	 * Extend this method to define the menu structure - see Subs-Menu.php for details!
+	 * Adds an area to the menu structure - see Subs-Menu.php for details!
 	 *
 	 * @access protected
 	 * @return void
 	 */
-	abstract protected function load();
+
+	public function addArea($id, $area)
+	{
+		$this->areas->addValue([$id => $areas]);
+	}
 
 	public function __construct($id, $title)
 	{
