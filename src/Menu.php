@@ -10,6 +10,8 @@ abstract class Menu
 {
 	protected $options;
 	protected $areas;
+	private $id;
+	private $title;
 
 	public function execute()
 	{
@@ -23,7 +25,11 @@ abstract class Menu
 		}
 
 		require_once($sourcedir . '/Subs-Menu.php');
-		return createMenu($areas, $options);
+		return createMenu(array(
+			$this->id => array(
+				'title' => $this->title,
+				'areas' => $areas
+			)), $options);
 	}
 
 	/**
@@ -34,8 +40,10 @@ abstract class Menu
 	 */
 	abstract protected function load();
 
-	public function __construct()
+	public function __construct($id, $title)
 	{
+		$this->id = $id;
+		$this->title = $title;
 		$this->options = new Collection();
 		$this->areas = new Collection();
 		$this->load();
