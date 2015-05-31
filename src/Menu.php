@@ -35,7 +35,7 @@ abstract class Menu
 	/**
 	 * Adds an area to the menu structure - see Subs-Menu.php for details!
 	 *
-	 * @access protected
+	 * @access public
 	 * @return void
 	 */
 
