@@ -27,7 +27,7 @@ abstract class Menu
 	}
 
 	/**
-	 * Extend this method to define all the menu structure - see Subs-Menu.php for details!
+	 * Extend this method to define the menu structure - see Subs-Menu.php for details!
 	 *
 	 * @access protected
 	 * @return void
