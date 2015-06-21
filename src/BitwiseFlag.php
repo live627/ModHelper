@@ -16,7 +16,7 @@ abstract class BitwiseFlag
 	 * from falsely setting BITS.
 	 */
 
-	/*
+	/**
 	 * Returns the stored bits.
 	 *
 	 * @access protected
@@ -41,5 +41,3 @@ abstract class BitwiseFlag
 		}
 	}
 }
-
-?>
