@@ -13,8 +13,21 @@ namespace ModHelper;
  */
 class Nonce
 {
+	/**
+	 * @var string
+	 */
+	private $hash;
 
 	protected $doOriginCheck = false;
+	/**
+	 * @var string
+	 */
+	private $key;
+
+	/**
+	 * @var int
+	 */
+	private $ttl = 900;
 
 	/**
 	 * Check CSRF tokens match between session and $origin.
