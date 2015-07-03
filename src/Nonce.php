@@ -137,7 +137,5 @@ class Nonce
 
 		return $string;
 	}
-
 }
 
-?>
