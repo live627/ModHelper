@@ -18,7 +18,6 @@ class Nonce
 	 */
 	private $hash;
 
-	protected $doOriginCheck = false;
 	/**
 	 * @var string
 	 */
