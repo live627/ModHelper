@@ -43,20 +43,12 @@ class Nonce
 	 */
 	public function check($key, $origin, $throwException = false, $timespan = null, $multiple = false)
 	{
-		if (!isset($_SESSION['csrf_' . $key])) {
-			if ($throwException) {
-				throw new Exception('Missing CSRF session token.');
-			} else {
-				return false;
-			}
+		if (!isset($_SESSION['csrf_' . $this->key])) {
+			throw new Exception('Missing CSRF session token.');
 		}
 
-		if (!isset($origin[$key])) {
-			if ($throwException) {
-				throw new Exception('Missing CSRF form token.');
-			} else {
-				return false;
-			}
+		if (!isset($_POST[$this->key])) {
+			throw new Exception('Missing CSRF form token.');
 		}
 
 		// Get valid token from session
@@ -68,30 +60,18 @@ class Nonce
 		}
 
 		// Origin checks
-		if (self::$doOriginCheck && sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($hash), 10, 40)) {
-			if ($throwException) {
-				throw new Exception('Form origin does not match token origin.');
-			} else {
-				return false;
-			}
+		if ($this->originCheck && sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
+			throw new Exception('Form origin does not match token origin.');
 		}
 
 		// Check if session token matches form token
-		if ($origin[$key] != $hash) {
-			if ($throwException) {
-				throw new Exception('Invalid CSRF token.');
-			} else {
-				return false;
-			}
+		if ($_POST[$this->key] != $this->hash) {
+			throw new Exception('Invalid CSRF token.');
 		}
 
 		// Check for token expiration
-		if ($timespan != null && is_int($timespan) && intval(substr(base64_decode($hash), 0, 10)) + $timespan < time()) {
-			if ($throwException) {
-				throw new Exception('CSRF token has expired.');
-			} else {
-				return false;
-			}
+		if ($this->ttl != null && is_int($this->ttl) && intval(substr(base64_decode($this->hash), 0, 10)) + $this->ttl < time()) {
+			throw new Exception('CSRF token has expired.');
 		}
 
 		return true;
