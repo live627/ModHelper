@@ -106,7 +106,7 @@ class Nonce
 	 * @param Integer $length The string length.
 	 * @return String The randomly generated string.
 	 */
-	protected function randomString($length)
+	private function randomString($length)
 	{
 		$seed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijqlmnopqrtsuvwxyz0123456789';
 		$max = strlen($seed) - 1;
