@@ -2,11 +2,11 @@
 
 /**
  * Nonce, an anti CSRF token generation/checking class.
- *
  * Copyright (c) 2011 Thibaut Despoulain <http://bkcore.com/blog/code/nocsrf-php-class.html>
- * Licensed under the MIT license <http://www.opensource.org/licenses/mit-license.php>
+ * @copyright Copyright (c) 2015 John Rayes
+ * @license http://opensource.org/licenses/MIT MIT
  *
- * @author Thibaut Despoulain <http://bkcore.com>
+ * @package ModHelper
  * @version 1.0
  */
 class Nonce
