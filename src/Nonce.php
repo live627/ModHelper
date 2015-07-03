@@ -29,6 +29,17 @@ class Nonce
 	private $ttl = 900;
 
 	/**
+	 * @param string $key The session and $origin key where to find the token.
+	 * @param int $ttl (Facultative) Makes the token expire after $this->ttl seconds. (null = never)
+	 */
+	public function __construct($key = null, $ttl = 900)
+	{
+		if (!isset($this->key)) {
+			$this->key = $this->randomString(8);
+		}
+		$this->ttl = $ttl;
+	}
+	/**
 	 * Check CSRF tokens match between session and $origin.
 	 * Make sure you generated a token in the form before checking it.
 	 *
