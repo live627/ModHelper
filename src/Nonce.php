@@ -32,15 +32,9 @@ class Nonce
 	 * Check CSRF tokens match between session and $origin.
 	 * Make sure you generated a token in the form before checking it.
 	 *
-	 * @param String $key The session and $origin key where to find the token.
-	 * @param Mixed $origin The object/associative array to retreive the token data from (usually $_POST).
-	 * @param Boolean $throwException (Facultative) TRUE to throw exception on check fail, FALSE or default to return false.
-	 * @param Integer $timespan (Facultative) Makes the token expire after $timespan seconds. (null = never)
-	 * @param Boolean $multiple (Facultative) Makes the token reusable and not one-time. (Useful for ajax-heavy requests).
-	 *
 	 * @return Boolean Returns FALSE if a CSRF attack is detected, TRUE otherwise.
 	 */
-	public function check($key, $origin, $throwException = false, $timespan = null, $multiple = false)
+	public function check()
 	{
 		if (!isset($_SESSION['csrf_' . $this->key])) {
 			throw new Exception('Missing CSRF session token.');
@@ -51,7 +45,7 @@ class Nonce
 		}
 
 		// Get valid token from session
-		$hash = $_SESSION['csrf_' . $key];
+		$this->hash = $_SESSION['csrf_' . $this->key];
 
 		// Free up session token for one-time CSRF token usage.
 		$_SESSION['csrf_' . $this->key] = null;
@@ -117,10 +111,9 @@ class Nonce
 	/**
 	 * CSRF token generator. After generating the token, put it inside a hidden form field named $this->key.
 	 *
-	 * @param String $key The session key where the token will be stored. (Will also be the name of the hidden field name)
 	 * @return String The generated, base64 encoded token.
 	 */
-	public function generate($key)
+	public function generate()
 	{
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
 		return $_SESSION['csrf_' . $this->key] = $this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
