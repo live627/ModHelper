@@ -32,7 +32,7 @@ class Nonce
 	 * Check CSRF tokens match between session and $origin.
 	 * Make sure you generated a token in the form before checking it.
 	 *
-	 * @return Boolean Returns FALSE if a CSRF attack is detected, TRUE otherwise.
+	 * @return bool Returns FALSE if a CSRF attack is detected, TRUE otherwise.
 	 */
 	public function check()
 	{
@@ -111,7 +111,7 @@ class Nonce
 	/**
 	 * CSRF token generator. After generating the token, put it inside a hidden form field named $this->key.
 	 *
-	 * @return String The generated, base64 encoded token.
+	 * @return string The generated, base64 encoded token.
 	 */
 	public function generate()
 	{
@@ -122,8 +122,8 @@ class Nonce
 	/**
 	 * Generates a random string of given $length.
 	 *
-	 * @param Integer $length The string length.
-	 * @return String The randomly generated string.
+	 * @param int $length The string length.
+	 * @return string The randomly generated string.
 	 */
 	private function randomString($length)
 	{
