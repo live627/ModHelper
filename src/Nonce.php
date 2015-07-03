@@ -1,5 +1,7 @@
 <?php
 
+namespace ModHelper;
+
 /**
  * Nonce, an anti CSRF token generation/checking class.
  * Copyright (c) 2011 Thibaut Despoulain <http://bkcore.com/blog/code/nocsrf-php-class.html>
