@@ -76,15 +76,47 @@ class Nonce
 	}
 
 	/**
-	 * Adds extra useragent and remote_addr checks to CSRF protections.
+	 * @return string
 	 */
-	public function enableOriginCheck()
+	public function getHash()
 	{
-		self::$doOriginCheck = true;
+		return $this->hash;
 	}
 
 	/**
-	 * CSRF token generation method. After generating the token, put it inside a hidden form field named $key.
+	 * @param string $key
+	 */
+	public function setKey($key)
+	{
+		$this->key = $key;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getKey()
+	{
+		return $this->key;
+	}
+
+	/**
+	 * @param int $ttl
+	 */
+	public function setTtl($ttl)
+	{
+		$this->ttl = $ttl;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getTtl()
+	{
+		return $this->ttl;
+	}
+
+	/**
+	 * CSRF token generator. After generating the token, put it inside a hidden form field named $this->key.
 	 *
 	 * @param String $key The session key where the token will be stored. (Will also be the name of the hidden field name)
 	 * @return String The generated, base64 encoded token.
