@@ -122,13 +122,8 @@ class Nonce
 	 */
 	public function generate($key)
 	{
-		$extra = self::$doOriginCheck ? sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) : '';
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
-		$token = base64_encode(time() . $extra . self::randomString(32));
-		// store the one-time token in session
-		$_SESSION['csrf_' . $key] = $token;
-
-		return $token;
+		return $_SESSION['csrf_' . $this->key] = $this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
 	}
 
 	/**
