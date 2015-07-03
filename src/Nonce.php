@@ -55,9 +55,7 @@ class Nonce
 		$hash = $_SESSION['csrf_' . $key];
 
 		// Free up session token for one-time CSRF token usage.
-		if (!$multiple) {
-			$_SESSION['csrf_' . $key] = null;
-		}
+		$_SESSION['csrf_' . $this->key] = null;
 
 		// Origin checks
 		if ($this->originCheck && sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
