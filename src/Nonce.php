@@ -12,7 +12,7 @@
 class Nonce
 {
 
-	protected static $doOriginCheck = false;
+	protected $doOriginCheck = false;
 
 	/**
 	 * Check CSRF tokens match between session and $origin.
@@ -26,7 +26,7 @@ class Nonce
 	 *
 	 * @return Boolean Returns FALSE if a CSRF attack is detected, TRUE otherwise.
 	 */
-	public static function check($key, $origin, $throwException = false, $timespan = null, $multiple = false)
+	public function check($key, $origin, $throwException = false, $timespan = null, $multiple = false)
 	{
 		if (!isset($_SESSION['csrf_' . $key])) {
 			if ($throwException) {
@@ -85,7 +85,7 @@ class Nonce
 	/**
 	 * Adds extra useragent and remote_addr checks to CSRF protections.
 	 */
-	public static function enableOriginCheck()
+	public function enableOriginCheck()
 	{
 		self::$doOriginCheck = true;
 	}
@@ -96,7 +96,7 @@ class Nonce
 	 * @param String $key The session key where the token will be stored. (Will also be the name of the hidden field name)
 	 * @return String The generated, base64 encoded token.
 	 */
-	public static function generate($key)
+	public function generate($key)
 	{
 		$extra = self::$doOriginCheck ? sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) : '';
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
@@ -113,7 +113,7 @@ class Nonce
 	 * @param Integer $length The string length.
 	 * @return String The randomly generated string.
 	 */
-	protected static function randomString($length)
+	protected function randomString($length)
 	{
 		$seed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijqlmnopqrtsuvwxyz0123456789';
 		$max = strlen($seed) - 1;
