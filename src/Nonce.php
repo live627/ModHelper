@@ -37,6 +37,9 @@ class Nonce
 		if (!isset($this->key)) {
 			$this->key = $this->randomString(8);
 		}
+		if (!is_int($ttl)) {
+			throw new \InvalidArgumentException('Integer expected: $ttl');
+		}
 		$this->ttl = $ttl;
 	}
 	/**
@@ -108,6 +111,9 @@ class Nonce
 	 */
 	public function setTtl($ttl)
 	{
+		if (!is_int($ttl)) {
+			throw new \InvalidArgumentException('Integer expected: $ttl');
+		}
 		$this->ttl = $ttl;
 	}
 
@@ -138,6 +144,9 @@ class Nonce
 	 */
 	private function randomString($length)
 	{
+		if (!is_int($length)) {
+			throw new \InvalidArgumentException('Integer expected: $length');
+		}
 		$seed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijqlmnopqrtsuvwxyz0123456789';
 		$max = strlen($seed) - 1;
 
