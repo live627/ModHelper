@@ -63,12 +63,12 @@ class Nonce
 
 		// Origin checks
 		if ($this->originCheck && sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
-			throw new Exception('Form origin does not match token origin.');
+			throw new Exceptions\BadCombinationException('Form origin does not match token origin.');
 		}
 
 		// Check if session token matches form token
 		if ($_POST[$this->key] != $this->hash) {
-			throw new Exception('Invalid CSRF token.');
+			throw new Exceptions\BadCombinationException('Invalid CSRF token.');
 		}
 
 		// Check for token expiration
