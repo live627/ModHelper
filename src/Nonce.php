@@ -48,11 +48,11 @@ class Nonce
 	public function check()
 	{
 		if (!isset($_SESSION['csrf_' . $this->key])) {
-			throw new Exception('Missing CSRF session token.');
+			throw new Exceptions\MissingDataException('Missing CSRF session token.');
 		}
 
 		if (!isset($_POST[$this->key])) {
-			throw new Exception('Missing CSRF form token.');
+			throw new Exceptions\MissingDataException('Missing CSRF form token.');
 		}
 
 		// Get valid token from session
