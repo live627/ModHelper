@@ -73,7 +73,7 @@ class Nonce
 
 		// Check for token expiration
 		if ($this->ttl != null && is_int($this->ttl) && intval(substr(base64_decode($this->hash), 0, 10)) + $this->ttl < time()) {
-			throw new Exception('CSRF token has expired.');
+			throw new \RangeException('CSRF token has expired.');
 		}
 
 		return true;
