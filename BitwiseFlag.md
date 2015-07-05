@@ -7,12 +7,12 @@ An abstract base class which will hold a single integer variable called $flags. 
 
 Note: these functions are protected to prevent outside code from falsely setting BITS.
 
-~~~
+```
 setFlag($flag, $value) 
-~~~
+```
 Will set a chosen bit
 
-~$flag~ The specific flag to store
+`$flag` The specific flag to store
 
 The class is abstract and cannot be instantiated, so an extension is required. Below is a simple extension called User.
 
