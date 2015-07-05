@@ -12,7 +12,7 @@ setFlag($flag, $value)
 ```
 Will set a chosen bit
 
-`$flag` Thee  specific flag to store
+`$flag` The specific flag to store
 
 The class is abstract and cannot be instantiated, so an extension is required. Below is a simple extension called User.
 
