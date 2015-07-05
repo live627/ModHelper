@@ -1,9 +1,4 @@
 name: Christmas Recipes
 baseurl: /christmas-recipes
 markdown: kramdown
-highlighter: rouge
-kramdown:
-    syntax_highlighter: rouge
-
-    input: GFM
-    auto_ids: true
+highlighter: pygments
