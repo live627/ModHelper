@@ -16,7 +16,7 @@ Will set a chosen bit
 
 The class is abstract and cannot be instantiated, so an extension is required. Below is a simple extension called User.
 
-~~~php
+~~~ php
 class User extends BitwiseFlag
 {
   const FLAG_REGISTERED = 1; // BIT #1 of $flags has the value 1
