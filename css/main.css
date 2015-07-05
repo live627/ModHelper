@@ -14,12 +14,8 @@
     }
 
 body {
-	color: #444;
 	font-family: 'Open Sans', Helvetica, sans-serif;
-	font-weight: 400;
-	font-size: 1em; /* 16px */
-	line-height: 1; /* 16px */
-	text-rendering: optimizeLegibility;
+	font-size: 1.1em; 
 	margin: 0 auto;
 	padding: 0;
     }
