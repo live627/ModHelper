@@ -1,2 +1,3 @@
 name: Christmas Recipes
 baseurl: /christmas-recipes
+highlighter: redcarpet
