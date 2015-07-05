@@ -16,7 +16,7 @@ Will set a chosen bit
 
 The class is abstract and cannot be instantiated, so an extension is required. Below is a simple extension called User.
 
-```php
+~~~ php
 class User extends BitwiseFlag
 {
   const FLAG_REGISTERED = 1; // BIT #1 of $flags has the value 1
@@ -65,11 +65,11 @@ class User extends BitwiseFlag
     ']';
   }
 }
-```
+~~~
 
 This seems like a lot of work, but we have addressed many issues, for example, using and maintaining the code is easy, and the getting and setting of flag values make sense. With the User class, you can now see how easy and intuitive bitwise flag operations become.
 
-```php
+~~~php
 $user = new User();
 $user->setRegistered(true);
 $user->setActive(true);
@@ -77,4 +77,4 @@ $user->setMember(true);
 $user->setAdmin(true);
 
 echo $user;  // outputs: User [REGISTERED ACTIVE MEMBER ADMIN]
-````
+~~~~
