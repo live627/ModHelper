@@ -23,6 +23,19 @@ body {
 	margin: 0 auto;
 	padding: 0;
     }
+    
+a {
+  color:#39c;
+  font-weight:400;
+  text-decoration:none;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.6em;
+  display:block;
+}
 
 h1,
 h2,
