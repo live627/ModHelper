@@ -9,18 +9,7 @@
 	width: device-width;
     }
 
-section, nav, article, aside, hgroup, header, footer, main,
-img, figure, figcaption, details, menu {
-	display: block;
-    }
-
-audio, video, canvas {
-	display: inline-block;
-    }
-
 * {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
     }
 
