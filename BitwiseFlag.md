@@ -7,7 +7,7 @@ An abstract base class which will hold a single integer variable called $flags. 
 
 Note: these functions are protected to prevent outside code from falsely setting BITS.
 
-``
+```
 setFlag($flag, $value) 
 ```
 Will set a chosen bit
