@@ -1,5 +1,3 @@
 name: Christmas Recipes
 baseurl: /christmas-recipes
-
-highlighter: pygments
-markdown: redcarpet
+highlighter: kramdown
