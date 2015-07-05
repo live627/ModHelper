@@ -1,3 +1,5 @@
 name: Christmas Recipes
 baseurl: /christmas-recipes
 markdown: redcarpet
+pygments: true
+startinline: true
