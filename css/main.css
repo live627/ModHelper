@@ -44,13 +44,8 @@ header {
 	background: #3498db;
 	box-shadow: 0 -3px #9fc6e0 inset;
 	padding: 20px 0;
+	text-align: center;
 }
-@media (max-width: 970px) {
-	header
-	{
-		text-align: center;
-	}
-    }
 
   #main {
    min-height: 800px;
@@ -184,7 +179,7 @@ footer
 	text-align: center;
 	box-shadow: 0 -7px #143c57;
 }
-footer, footer a, header h1 a
+footer, footer a, header a
 {
 	color: #fff !important;
 }
