@@ -117,11 +117,7 @@ aside ul {
   padding:0;
 }
 aside ul {
-  list-style:none;
   height:40px;
-
-  padding:0;
-
   background: #eee;
   background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
@@ -179,15 +175,12 @@ tt, code {
 }
 
 pre {
-    border: solid 1px #d9d9d9;
-    border-radius: 0;
-    padding: 0;
-    line-height: 23px;
-    margin-bottom: 30px;
-    white-space: pre;
-    overflow-x: auto;
-    word-break: inherit;
-    word-wrap: inherit;
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
 }
 
 pre .lineno {
