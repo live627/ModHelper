@@ -3,6 +3,8 @@ layout: default
 title: BitwiseFlag
 ---
 
+# BitwiseFlag
+
 An abstract base class which will hold a single integer variable called $flags. This simple integer can hold 32 TRUE or FALSE boolean values. Another thing to consider is to just set certain BIT values without disturbing any of the other BITS. 
 
 Note: these functions are protected to prevent outside code from falsely setting BITS.
@@ -78,3 +80,33 @@ $user->setAdmin(true);
 
 echo $user;  // outputs: User [REGISTERED ACTIVE MEMBER ADMIN]
 {% endhighlight %}
+
+## A note about using hexadecimal numebers
+
+Using hexadecimal numebers helps with the mental conversion between the integer value and the bit pattern it represents, which is the thing that matters for flags and masks.
+
+Because 16 is a power of 2 (unlike 10), you get nice repeating things like this:
+
+{% highlight php linenos startinline %}
+const F0 = 0x1; // 2^0
+const F1 = 0x2; // 2^1
+const F2 = 0x4; // 2^2
+const F3 = 0x8; // 2^3
+const F4 = 0x10; // 2^4
+const F5 = 0x20; // 2^5
+const F6 = 0x40; // 2^6
+const F7 = 0x80; // 2^7
+// ...
+const F20 = 0x1000000; // 2^20
+const F21 = 0x2000000; // 2^21
+const F22 = 0x4000000; // 2^22
+const F23 = 0x8000000; // 2^23
+const F24 = 0x10000000; // 2^24
+// ... up to 2^31
+{% endhighlight %}
+
+See the pattern? You get neat groups of 1-8, and zero is appended to start a new group (leading zeros have been truncated for brevity and are optional).
+
+In addition, hexadecimal constants indicate to the programmer that it's probably a bit mask, or a value that will be somehow involved in bitwise operations and should probably be treated specially.
+
+Avoid using decimal notation, especially with a large amount of different flags, because it's very easy to misspell numbers like 2^20 (1048576).
