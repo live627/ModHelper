@@ -178,13 +178,9 @@ tt, code {
   font-size: 12px;
 }
 
-.highlight { background-color: #ffffcc }
-
 pre {
-    counter-reset: line-numbering;
     border: solid 1px #d9d9d9;
     border-radius: 0;
-    background: #fff;
     padding: 0;
     line-height: 23px;
     margin-bottom: 30px;
@@ -194,16 +190,10 @@ pre {
     word-wrap: inherit;
 }
 
-pre a::before {
-  content: counter(line-numbering);
-  counter-increment: line-numbering;
+pre .lineno {
   padding-right: 1em; /* space after numbers */
   width: 25px;
   text-align: right;
-  opacity: 0.7;
-  display: inline-block;
-  color: #aaa;
-  background: #eee;
   margin-right: 16px;
   padding: 2px 10px;
   font-size: 13px;
