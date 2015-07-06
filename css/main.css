@@ -15,7 +15,6 @@
 
 body {
 	font-family: 'Open Sans', Helvetica, sans-serif;
-	font-size: 1.1em; 
 	margin: 0 auto;
 	padding: 0;
     }
@@ -29,7 +28,6 @@ a {
 a small {
   font-size:11px;
   color:#777;
-  margin-top:-0.6em;
   display:block;
 }
 
@@ -174,10 +172,13 @@ tt, code {
   font-size: 12px;
 }
 
-pre {
+pre[class] {
   -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
      -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
           box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+pre {
   padding: 8px;
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
@@ -196,18 +197,6 @@ pre .lineno {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-pre a:first-of-type::before {
-  padding-top: 10px;
-}
-
-pre a:last-of-type::before {
-  padding-bottom: 10px;
-}
-
-pre a:only-of-type::before {
-  padding: 10px;
 }
 
 code .c { color: #008000 } /* Comment */
