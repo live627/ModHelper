@@ -8,13 +8,40 @@ namespace ModHelper;
  */
 trait SingletonTrait
 {
-    protected static $instance;
-    final public static function getInstance()
+    /**
+     * Create Singleton instance.
+     *
+     * @return Singleton instance
+     */
+    public static function getInstance()
     {
-        return isset(static::$instance)
-            ? static::$instance
-            : static::$instance = new static;
+        static $instance = null;
+
+        if ($instance === null) {
+            $instance = new static();
+        }
+
+        return $instance;
     }
-    final private function __wakeup() {}
-    final private function __clone() {}
+
+    /**
+     * Prevent creating Singleton instance by "new" keyword.
+     */
+    protected function __construct()
+    {
+    }
+
+    /**
+     * Prevent cloning Singleton instance.
+     */
+    protected function __clone()
+    {
+    }
+
+    /**
+     * Prevent unserializing Singleton instance.
+     */
+    protected function __wakeup()
+    {
+    }
 }
