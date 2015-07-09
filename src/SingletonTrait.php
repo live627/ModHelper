@@ -13,7 +13,7 @@ trait SingletonTrait
      *
      * @return Singleton instance
      */
-    public static function getInstance()
+    final public static function getInstance()
     {
         static $instance = null;
 
@@ -27,21 +27,21 @@ trait SingletonTrait
     /**
      * Prevent creating Singleton instance by "new" keyword.
      */
-    protected function __construct()
+    final private function __construct()
     {
     }
 
     /**
      * Prevent cloning Singleton instance.
      */
-    protected function __clone()
+    final private function __clone()
     {
     }
 
     /**
      * Prevent unserializing Singleton instance.
      */
-    protected function __wakeup()
+    final private function __wakeup()
     {
     }
 }
