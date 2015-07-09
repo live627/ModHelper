@@ -1,5 +1,5 @@
 ---
-layout: recipe
+layout: default
 title: SingletonTrait
 ---
 
@@ -32,6 +32,7 @@ object(A)#1 (1) {
 }
 ```
 and the new fails:
+
 ```
 Fatal error: Call to private A::__construct() from invalid context in ...
 ```
