@@ -19,6 +19,7 @@ $loader->register();
 // register the base directories for the namespace prefix
 $loader->addNamespace('Foo\Bar', '/path/to/packages/foo-bar/src');
 $loader->addNamespace('Foo\Bar', '/path/to/packages/foo-bar/tests');
+{% endhighlight %}
 
 The following line would cause the autoloader to attempt to load the
 \Foo\Bar\Qux\Quux class from /path/to/packages/foo-bar/src/Qux/Quux.php:
