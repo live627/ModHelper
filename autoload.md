@@ -34,3 +34,5 @@ The following line would cause the autoloader to attempt to load the
 {% highlight php linenos startinline %}
 new \Foo\Bar\Qux\QuuxTest;
 {% endhighlight %}
+
+Code obtained from [PSR 4 Example Implementations](https://github.com/php-fig/fig-standards/wiki/PSR-4-Example-Implementations)
