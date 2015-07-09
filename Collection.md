@@ -5,7 +5,7 @@ title: Collection
 
 # Collection 
 
-This is a class implementing IteratorAggregate using generator
+This is a class implementing IteratorAggregate using a generator.
 
 {% highlight php linenos startinline %}
 //Initializes a collection
