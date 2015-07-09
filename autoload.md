@@ -25,6 +25,7 @@ The following line would cause the autoloader to attempt to load the
 
 {% highlight php linenos startinline %}
 new \Foo\Bar\Qux\Quux;
+{% endhighlight %}
 
 The following line would cause the autoloader to attempt to load the 
 \Foo\Bar\Qux\QuuxTest class from /path/to/packages/foo-bar/tests/Qux/QuuxTest.php:
