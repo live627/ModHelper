@@ -30,6 +30,10 @@ trait SingletonTrait
     final private function __construct()
     {
     }
+    
+    protected function init() 
+    {
+    }
 
     /**
      * Prevent cloning Singleton instance.
