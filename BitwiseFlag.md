@@ -105,7 +105,7 @@ const F24 = 0x10000000; // 2^24
 // ... up to 2^31
 {% endhighlight %}
 
-See the pattern? You get neat groups of 1-8, and zero is appended to start a new group (leading zeros have been truncated for brevity and are optional).
+See the pattern? You get neat groups of 1&mdash;8, and zero is appended to start a new group (leading zeros have been truncated for brevity and are optional).
 
 In addition, hexadecimal constants indicate to the programmer that it's probably a bit mask, or a value that will be somehow involved in bitwise operations and should probably be treated specially.
 
