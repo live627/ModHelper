@@ -22,14 +22,14 @@ $loader->addNamespace('Foo\Bar', '/path/to/packages/foo-bar/tests');
 {% endhighlight %}
 
 The following line would cause the autoloader to attempt to load the
-\Foo\Bar\Qux\Quux class from /path/to/packages/foo-bar/src/Qux/Quux.php:
+`\Foo\Bar\Qux\Quux` class from `/path/to/packages/foo-bar/src/Qux/Quux.php`:
 
 {% highlight php linenos startinline %}
 new \Foo\Bar\Qux\Quux;
 {% endhighlight %}
 
 The following line would cause the autoloader to attempt to load the 
-\Foo\Bar\Qux\QuuxTest class from /path/to/packages/foo-bar/tests/Qux/QuuxTest.php:
+`\Foo\Bar\Qux\QuuxTest` class from `/path/to/packages/foo-bar/tests/Qux/QuuxTest.php`:
 
 {% highlight php linenos startinline %}
 new \Foo\Bar\Qux\QuuxTest;
