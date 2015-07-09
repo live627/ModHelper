@@ -9,7 +9,7 @@ A quick way to turn any class into a singleton using this trait.
 
 {% highlight php linenos startinline %}
 class A {
-    use Singleton;
+    use SingletonTrait;
 
     protected function init() {
         $this->foo = 1;
