@@ -69,6 +69,8 @@ class User extends BitwiseFlag
 }
 {% endhighlight %}
 
+###### Code obtained fron [a user contributed note on php.net](http://php.net/manual/en/language.operators.bitwise.php#108679)
+
 This seems like a lot of work, but we have addressed many issues, for example, using and maintaining the code is easy, and the getting and setting of flag values make sense. With the User class, you can now see how easy and intuitive bitwise flag operations become.
 
 {% highlight php linenos startinline %}
