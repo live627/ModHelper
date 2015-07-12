@@ -1,5 +1,5 @@
-name: Christmas Recipes
-baseurl: /christmas-recipes
+name: ModHelper
+baseurl: /ModHelper
 markdown: redcarpet
 pygments: true
 startinline: true
