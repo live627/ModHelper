@@ -18,8 +18,8 @@ class Collection implements \IteratorAggregate
 
 	public function getIterator()
 	{
-		foreach ($this->items as $item) {
-			yield $item;
+		foreach ($this->items as $id => $item) {
+			yield $id => $item;
 		}
 	}
 }
