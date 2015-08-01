@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class ModHelper\Nonce</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-ModHelper.html">
+						ModHelper<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-ModHelper.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-ModHelper.A.html">A</a></li>
+				<li><a href="class-ModHelper.BitwiseFlag.html">BitwiseFlag</a></li>
+				<li><a href="class-ModHelper.Collection.html">Collection</a></li>
+				<li><a href="class-ModHelper.Database.html">Database</a></li>
+				<li><a href="class-ModHelper.Editor.html">Editor</a></li>
+				<li><a href="class-ModHelper.Hooks.html">Hooks</a></li>
+				<li><a href="class-ModHelper.Linktree.html">Linktree</a></li>
+				<li><a href="class-ModHelper.Menu.html">Menu</a></li>
+				<li class="active"><a href="class-ModHelper.Nonce.html">Nonce</a></li>
+				<li><a href="class-ModHelper.Psr4AutoloaderClass.html">Psr4AutoloaderClass</a></li>
+				<li><a href="class-ModHelper.Verify.html">Verify</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-ModHelper.SingletonTrait.html">SingletonTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-ModHelper.html" title="Summary of ModHelper"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Nonce</h1>
+
+
+	<div class="description">
+	<p>Nonce, an anti CSRF token generation/checking class.
+Copyright (c) 2011 Thibaut Despoulain <a href="http://bkcore.com/blog/code/nocsrf-php-class.html">http://bkcore.com/blog/code/nocsrf-php-class.html</a></p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-ModHelper.html">ModHelper</a><br>
+		<b>Package:</b> ModHelper<br>
+
+				<b>Copyright:</b>
+				Copyright (c) 2015 John Rayes<br>
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">MIT</a><br>
+				<b>Version:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-ModHelper.Nonce.html#5-160" title="Go to source code">Nonce.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#31-44" title="Go to source code">__construct</a>( <span>string <var>$key</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$ttl</var> = <span class="php-num">900</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>The session and $origin key where to find the token.</dd>
+					<dt><var>$ttl</var></dt>
+					<dd>(Facultative) Makes the token expire after $this->ttl seconds. (null = never)</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="check" id="_check">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_check">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#45-83" title="Go to source code">check</a>( )</code>
+
+		<div class="description short">
+			<p>Check CSRF tokens match between session and $origin.
+Make sure you generated a token in the form before checking it.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Check CSRF tokens match between session and $origin.
+Make sure you generated a token in the form before checking it.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Returns FALSE if a CSRF attack is detected, TRUE otherwise.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHash" id="_getHash">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHash">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#85-91" title="Go to source code">getHash</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setKey" id="_setKey">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setKey">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#93-99" title="Go to source code">setKey</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getKey" id="_getKey">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getKey">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#101-107" title="Go to source code">getKey</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTtl" id="_setTtl">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTtl">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#109-118" title="Go to source code">setTtl</a>( <span>integer <var>$ttl</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ttl</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTtl" id="_getTtl">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTtl">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#120-126" title="Go to source code">getTtl</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="generate" id="_generate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_generate">#</a>
+		<code><a href="source-class-ModHelper.Nonce.html#128-137" title="Go to source code">generate</a>( )</code>
+
+		<div class="description short">
+			<p>CSRF token generator. After generating the token, put it inside a hidden form field named $this->key.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>CSRF token generator. After generating the token, put it inside a hidden form field named $this->key.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The generated, base64 encoded token.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

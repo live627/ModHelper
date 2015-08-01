@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class ModHelper\Psr4AutoloaderClass</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-ModHelper.html">
+						ModHelper<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-ModHelper.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-ModHelper.A.html">A</a></li>
+				<li><a href="class-ModHelper.BitwiseFlag.html">BitwiseFlag</a></li>
+				<li><a href="class-ModHelper.Collection.html">Collection</a></li>
+				<li><a href="class-ModHelper.Database.html">Database</a></li>
+				<li><a href="class-ModHelper.Editor.html">Editor</a></li>
+				<li><a href="class-ModHelper.Hooks.html">Hooks</a></li>
+				<li><a href="class-ModHelper.Linktree.html">Linktree</a></li>
+				<li><a href="class-ModHelper.Menu.html">Menu</a></li>
+				<li><a href="class-ModHelper.Nonce.html">Nonce</a></li>
+				<li class="active"><a href="class-ModHelper.Psr4AutoloaderClass.html">Psr4AutoloaderClass</a></li>
+				<li><a href="class-ModHelper.Verify.html">Verify</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-ModHelper.SingletonTrait.html">SingletonTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-ModHelper.html" title="Summary of ModHelper"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Psr4AutoloaderClass</h1>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-ModHelper.html">ModHelper</a><br>
+		<b>Package:</b> ModHelper<br>
+
+				<b>Since:</b>
+				1.0<br>
+				<b>See:</b>
+				https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md#class-example<br>
+			<b>Located at</b> <a href="source-class-ModHelper.Psr4AutoloaderClass.html#5-144" title="Go to source code">Psr4AutoloaderClass.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="register" id="_register">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_register">#</a>
+		<code><a href="source-class-ModHelper.Psr4AutoloaderClass.html#20-30" title="Go to source code">register</a>( )</code>
+
+		<div class="description short">
+			<p>Register loader with SPL autoloader stack.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Register loader with SPL autoloader stack.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addNamespace" id="_addNamespace">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addNamespace">#</a>
+		<code><a href="source-class-ModHelper.Psr4AutoloaderClass.html#32-61" title="Go to source code">addNamespace</a>( <span>string <var>$prefix</var></span>, <span>string <var>$base_dir</var></span>, <span>boolean <var>$prepend</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>Adds a base directory for a namespace prefix.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Adds a base directory for a namespace prefix.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prefix</var></dt>
+					<dd>The namespace prefix.</dd>
+					<dt><var>$base_dir</var></dt>
+					<dd><p>A base directory for class files in the
+namespace.</p></dd>
+					<dt><var>$prepend</var></dt>
+					<dd><p>If true, prepend the base directory to the stack
+instead of appending it; this causes it to be searched first rather
+than last.</p></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadClass" id="_loadClass">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadClass">#</a>
+		<code><a href="source-class-ModHelper.Psr4AutoloaderClass.html#63-93" title="Go to source code">loadClass</a>( <span>string <var>$class</var></span> )</code>
+
+		<div class="description short">
+			<p>Loads the class file for a given class name.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Loads the class file for a given class name.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$class</var></dt>
+					<dd>The fully-qualified class name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br><p>The mapped file name on success, or boolean false on
+failure.</p>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadMappedFile" id="_loadMappedFile">
+
+		<td class="attributes"><code>
+			 protected 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadMappedFile">#</a>
+		<code><a href="source-class-ModHelper.Psr4AutoloaderClass.html#95-126" title="Go to source code">loadMappedFile</a>( <span>string <var>$prefix</var></span>, <span>string <var>$relative_class</var></span> )</code>
+
+		<div class="description short">
+			<p>Load the mapped file for a namespace prefix and relative class.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Load the mapped file for a namespace prefix and relative class.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prefix</var></dt>
+					<dd>The namespace prefix.</dd>
+					<dt><var>$relative_class</var></dt>
+					<dd>The relative class name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br><p>Boolean false if no mapped file can be loaded, or the
+name of the mapped file that was loaded.</p>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="requireFile" id="_requireFile">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_requireFile">#</a>
+		<code><a href="source-class-ModHelper.Psr4AutoloaderClass.html#128-143" title="Go to source code">requireFile</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>If a file exists, require it from the file system.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>If a file exists, require it from the file system.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>The file to require.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>True if the file exists, false if not.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="prefixes" id="$prefixes">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-ModHelper.Psr4AutoloaderClass.html#12-18" title="Go to source code"><var>$prefixes</var></a>
+
+			<div class="description short">
+				<p>An associative array where the key is a namespace prefix and the value
+is an array of base directories for classes in that namespace.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>An associative array where the key is a namespace prefix and the value
+is an array of base directories for classes in that namespace.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$prefixes" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
