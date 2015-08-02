@@ -10,6 +10,8 @@ home: true
 
 Collection of scripts to act as the backbone for SMF mods
 
+[Function reference](http://live627.github.io/ModHelper/docs/)
+
 ## Requirements:
 - SMF 2.0 or greater
 - PHP 5.5 or greater
