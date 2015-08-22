@@ -9,7 +9,7 @@ namespace ModHelper;
  * @license http://opensource.org/licenses/MIT MIT
  *
  * @package ModHelper
- * @version 1.0
+ * @since 1.1
  */
 class Nonce
 {
@@ -34,8 +34,8 @@ class Nonce
 	 */
 	public function __construct($key = null, $ttl = 900)
 	{
-		if (!isset($this->key)) {
-			$this->key = $this->randomString(8);
+		if (!isset($key)) {
+			$this->key = 'csrf_' . $this->randomString(8);
 		}
 		if (!is_int($ttl)) {
 			throw new \InvalidArgumentException('Integer expected: $ttl');
@@ -46,11 +46,11 @@ class Nonce
 	 * Check CSRF tokens match between session and $origin.
 	 * Make sure you generated a token in the form before checking it.
 	 *
-	 * @return bool Returns FALSE if a CSRF attack is detected, TRUE otherwise.
+	 * @return bool Returns false if a CSRF attack is detected, true otherwise.
 	 */
 	public function check()
 	{
-		if (!isset($_SESSION['csrf_' . $this->key])) {
+		if ($this->hash = (false !== Session::get($this->key))) {
 			throw new Exceptions\MissingDataException('Missing CSRF session token.');
 		}
 
@@ -58,11 +58,8 @@ class Nonce
 			throw new Exceptions\MissingDataException('Missing CSRF form token.');
 		}
 
-		// Get valid token from session
-		$this->hash = $_SESSION['csrf_' . $this->key];
-
 		// Free up session token for one-time CSRF token usage.
-		$_SESSION['csrf_' . $this->key] = null;
+		Session::pull($this->key) = null;
 
 		// Origin checks
 		if (sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
@@ -133,7 +130,7 @@ class Nonce
 	public function generate()
 	{
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
-		return $_SESSION['csrf_' . $this->key] = $this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
+		return Session::put($this->key) = $this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
 	}
 
 	/**
@@ -158,4 +155,3 @@ class Nonce
 		return $string;
 	}
 }
-
