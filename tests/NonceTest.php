@@ -16,10 +16,6 @@ class MockNonce extends \ModHelper\Nonce
 			// CSRF attack detected
 			return $e->getMessage();
 		}
-		finally {
-					//This overrides the exception as if it were never thrown
-		return $result;
-		}
 
     }
 }
