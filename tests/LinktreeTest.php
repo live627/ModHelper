@@ -30,32 +30,11 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testExistingLink()
-    {
-        $expect = array(
-            'Foo',
-            '/vendor/foo'
-        );
-        $this->assertContains($expect, $this->l->getLinks());
-
-        $expect = array(
-            'BarDoom',
-            '/vendor/foo.bardoom'
-        );
-        $this->assertContains($expect, $this->l->getLinks());
-    }
-
-    public function testMissingLink()
-    {
-        $expect = array(
-            'Baz Dib',
-            '/vendor/baz.dib'
-        );
-        $this->assertNotContains($expect, $this->l->getLinks());
-    }
-
     public function testLinkCount()
     {
-        $this->assertCount(2, $this->l->getLinks());
+        $this->assertCount(2, array(
+            'Baz Dib',
+            '/vendor/baz.dib'
+        ));
     }
 }
