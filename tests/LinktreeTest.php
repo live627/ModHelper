@@ -2,35 +2,20 @@
 
 namespace ModHelper\Tests;
 
-class MockLinktree extends \ModHelper\Linktree
-{
-    protected $Links = array();
-
-    public function setLinks(array $Links)
-    {
-        $this->Links = $Links;
-    }
-
-    protected function requireLink($Link)
-    {
-        return in_array($Link, $this->Links);
-    }
-}
-
 class LinktreeTest extends \PHPUnit_Framework_TestCase
 {
-    protected $linktree;
+    protected l;
 
     protected function setUp()
     {
-        $this->linktree = new \ModHelper\Linktree;
+        $this->l = new \ModHelper\Linktree;
 
-        $this->linktree->add(
+        $this->l->add(
             'Foo',
             '/vendor/foo'
         );
 
-        $this->linktree->add(
+        $this->l->add(
             'BarDoom',
             '/vendor/foo.bardoom'
         );
@@ -43,13 +28,13 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'Foo',
             '/vendor/foo'
         );
-        $this->assertContains($expect, $this->collection);
+        $this->assertContains($expect, $this->l->collection);
 
         $expect = array(
             'BarDoom',
             '/vendor/foo.bardoom'
         );
-        $this->assertContains($expect, $this->collection);
+        $this->assertContains($expect, $this->l->collection);
     }
 
     public function testMissingLink()
@@ -58,11 +43,11 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'Baz Dib',
             '/vendor/baz.dib'
         );
-        $this->assertNotContains($expect, $this->collection);
+        $this->assertNotContains($expect, $this->l->collection);
     }
 
     public function testLinkCount()
     {
-        $this->assertCount(2, $this->collection);
+        $this->assertCount(2, $this->l->collection);
     }
 }
