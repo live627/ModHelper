@@ -9,7 +9,7 @@ namespace ModHelper;
 
 abstract class BitwiseFlag
 {
-	private $flags;
+	protected $flags;
 
 	/*
 	 * Note: these functions are protected to prevent outside code
