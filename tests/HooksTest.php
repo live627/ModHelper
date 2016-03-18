@@ -4,9 +4,14 @@ namespace ModHelper\Tests;
 
 class MockHooks extends \ModHelper\Hooks
 {
+    private $h;
+
     public function getHooks()
     {
-        return $this->collection;
+        if (!$this->h)
+            $this->h = $this->collection;
+
+        return $this->h;
     }
 }
 
