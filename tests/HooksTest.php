@@ -9,7 +9,7 @@ class MockHooks extends \ModHelper\Hooks
     public function getHooks()
     {
         if (!$this->h)
-            $this->h = $this->collection;
+            $this->h = iterator_to_array($this->collection);
 
         return $this->h;
     }
