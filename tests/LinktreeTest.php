@@ -23,7 +23,7 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->linktree = new MockLinktree;
+        $this->linktree = new MockLinktree();
 
         $this->linktree->add(
             'Foo',
