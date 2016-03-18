@@ -77,6 +77,6 @@ class BitwiseFlagTest extends \PHPUnit_Framework_TestCase
 
     public function testRawBits()
     {
-        $this->assertSame(0x7, (string) $this->loader);
+        $this->assertEquals(0x7, (string) $this->loader);
     }
 }
