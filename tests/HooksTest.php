@@ -32,11 +32,11 @@ class HooksTest extends \PHPUnit_Framework_TestCase
             'BarDoom',
             '/vendor/foo.bardoom'
         );
-
     }
 
     public function testExistingHook()
     {
+        var_dump($this->l->getHooks());
         $expect = array(
             'Foo',
             '/vendor/foo'
