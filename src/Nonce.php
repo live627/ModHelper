@@ -59,6 +59,7 @@ class Nonce
 		}
 
 		// Origin checks
+		var_dump(sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']), substr(base64_decode($this->hash), 10, 40));
 		if (sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
 			throw new Exceptions\BadCombinationException('Form origin does not match token origin.');
 		}
