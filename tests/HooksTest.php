@@ -15,7 +15,7 @@ class MockHooks extends \ModHelper\Hooks
     }
 }
 
-class HooksTest extends \PHPUnit_Framework_TestCase
+class HooksTest extends \PHPUnit_Framework_TestCase 
 {
     protected $l;
 
@@ -36,16 +36,17 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 
     public function testExistingHook()
     {
-        var_dump($this->l->getHooks());
         $expect = array(
             'Foo',
-            '/vendor/foo'
+            '/vendor/foo',
+            true
         );
         $this->assertContains($expect, $this->l->getHooks());
 
         $expect = array(
             'BarDoom',
-            '/vendor/foo.bardoom'
+            '/vendor/foo.bardoom',
+            true
         );
         $this->assertContains($expect, $this->l->getHooks());
     }
@@ -54,7 +55,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     {
         $expect = array(
             'Baz Dib',
-            '/vendor/baz.dib'
+            '/vendor/baz.dib',
+            true
         );
         $this->assertNotContains($expect, $this->l->getHooks());
     }
