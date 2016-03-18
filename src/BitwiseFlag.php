@@ -16,17 +16,6 @@ abstract class BitwiseFlag
 	 * from falsely setting BITS.
 	 */
 
-	/**
-	 * Returns the stored bits.
-	 *
-	 * @access protected
-	 * @return int
-	 */
-	protected function __construct()
-	{
-		return $this->flags;
-	}
-
 	protected function isFlagSet($flag)
 	{
 		return (($this->flags & $flag) == $flag);
