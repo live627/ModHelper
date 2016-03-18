@@ -2,7 +2,7 @@
 
 namespace ModHelper\Tests;
 
-class MockPsr4AutoloaderClass extends Psr4AutoloaderClass
+class MockPsr4AutoloaderClass extends \ModHelper\Psr4AutoloaderClass
 {
     protected $files = array();
 
