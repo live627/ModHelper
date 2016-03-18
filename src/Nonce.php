@@ -51,15 +51,12 @@ class Nonce
 	public function check()
 	{
 		if ($this->hash = (false !== Session::get($this->key))) {
-			throw new Exceptions\MissingDataException('Missing CSRF session token.');
+			throw new Exceptions\MissingDataException('Missing CSRF session token');
 		}
 
 		if (!isset($_POST[$this->key])) {
-			throw new Exceptions\MissingDataException('Missing CSRF form token.');
+			throw new Exceptions\MissingDataException('Missing CSRF form token');
 		}
-
-		// Free up session token for one-time CSRF token usage.
-		Session::pull($this->key) = null;
 
 		// Origin checks
 		if (sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) != substr(base64_decode($this->hash), 10, 40)) {
@@ -68,13 +65,16 @@ class Nonce
 
 		// Check if session token matches form token
 		if ($_POST[$this->key] != $this->hash) {
-			throw new Exceptions\BadCombinationException('Invalid CSRF token.');
+			throw new Exceptions\BadCombinationException('Invalid CSRF token');
 		}
 
 		// Check for token expiration
 		if ($this->ttl != null && is_int($this->ttl) && intval(substr(base64_decode($this->hash), 0, 10)) + $this->ttl < time()) {
 			throw new \RangeException('CSRF token has expired.');
 		}
+
+		// Free up session token for one-time CSRF token usage.
+		Session::pull($this->key);
 
 		return true;
 	}
@@ -130,7 +130,9 @@ class Nonce
 	public function generate()
 	{
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
-		return Session::put($this->key) = $this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
+		$this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
+		Session::put($this->key, $this->hash);
+		return $this->hash;
 	}
 
 	/**
