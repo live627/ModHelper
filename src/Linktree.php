@@ -8,7 +8,7 @@ namespace ModHelper;
  */
 class Linktree
 {
-	protected $collection = array();
+	protected $collection;
 
 	public function execute()
 	{
