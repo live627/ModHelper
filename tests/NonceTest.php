@@ -27,7 +27,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        session_start();
         $this->loader = new MockNonce;
     }
 
@@ -52,6 +51,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
 
         $_POST[$this->loader->getKey()] = $hash;
         $actual = $this->loader->checkAttack();
-        $this->assertSame('Invalid CSRF token' , $actual);
+        $this->assertSame('CSRF check passed' , $actual);
     }
 }
