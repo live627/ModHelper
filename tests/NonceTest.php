@@ -37,12 +37,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(900, $actual);
     }
 
-    public function testTtl()
-    {
-        $actual = $this->loader->getTtl();
-        $this->assertSame(900, $actual);
-    }
-
     public function testAttack()
     {
         $actual = $this->loader->checkAttack();
