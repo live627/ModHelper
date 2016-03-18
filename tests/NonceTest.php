@@ -47,6 +47,7 @@ class NonceTest extends \PHPUnit_Framework_TestCase
             $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
             $hash = $this->loader->generate();
         $_POST[$this->loader->getKey()] = $hash;
+        echo Session;
         $actual = $this->loader->check();
         $this->assertTrue($actual);
     }
