@@ -4,7 +4,7 @@ namespace ModHelper\Tests;
 
 class LinktreeTest extends \PHPUnit_Framework_TestCase
 {
-    protected l;
+    protected $l;
 
     protected function setUp()
     {
