@@ -4,10 +4,10 @@ namespace ModHelper\Tests;
 
 class MockBitwiseFlag extends \ModHelper\BitwiseFlag
 {
-    const FLAG_REGISTERED = 0x1; // BIT #1 of $flags has the value 1
-    const FLAG_ACTIVE = 0x2;         // BIT #2 of $flags has the value 2
-    const FLAG_MEMBER = 0x4;         // BIT #3 of $flags has the value 4
-    const FLAG_ADMIN = 0x8;            // BIT #4 of $flags has the value 8
+    const FLAG_REGISTERED = 0x1;
+    const FLAG_ACTIVE = 0x2;
+    const FLAG_MEMBER = 0x4;
+    const FLAG_ADMIN = 0x8;
 
     public function isRegistered(){
         return $this->isFlagSet(self::FLAG_REGISTERED);
@@ -43,7 +43,7 @@ class MockBitwiseFlag extends \ModHelper\BitwiseFlag
 
     function __toString()
     {
-        return $this->flags;
+        return (string) $this->flags;
     }
 }
 
