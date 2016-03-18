@@ -39,15 +39,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
     {
         try
         {
-            $this->loader->check();
-        }
-        catch (Exception $e)
-        {
-            $this->assertSame('Missing CSRF session token', $e->getMessage());
-        }
-
-        try
-        {
             $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
             $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
             $hash = $this->loader->generate();
