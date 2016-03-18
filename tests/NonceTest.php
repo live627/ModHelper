@@ -37,9 +37,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
 
     public function testAttack()
     {
-        $actual = $this->loader->checkAttack();
-        $this->assertSame('Missing CSRF session token', $actual);
-
         $hash = $this->loader->generate();
         $actual = $this->loader->checkAttack();
         $this->assertSame('Missing CSRF form token', $actual);
