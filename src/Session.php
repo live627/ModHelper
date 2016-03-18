@@ -68,7 +68,7 @@ class Session
      * return the session array
      * @return array of session indexes
      */
-    public static function __toString()
+    public function __toString()
     {
         return print_r($_SESSION);
     }
