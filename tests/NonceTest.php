@@ -9,12 +9,12 @@ class MockNonce extends \ModHelper\Nonce
 		try
 		{
 			$this->check();
-			$result = 'CSRF check passed';
+			return 'CSRF check passed';
 		}
 		catch (Exception $e)
 		{
 			// CSRF attack detected
-			$result = $e->getMessage();
+			return $e->getMessage();
 		}
 		finally {
 					//This overrides the exception as if it were never thrown
