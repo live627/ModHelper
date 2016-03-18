@@ -6,17 +6,17 @@ class MockNonce extends \ModHelper\Nonce
 {
     public function checkAttack()
     {
-		try
-		{
-			$this->check();
-			return 'CSRF check passed';
-		}
-		catch (Exception $e)
-		{
-			// CSRF attack detected
-			return $e->getMessage();
-		}
-
+        try
+        {
+            $this->check();
+            $result = 'CSRF check passed';
+        }
+        catch (Exception $e)
+        {
+            // CSRF attack detected
+            $result = $e->getMessage();
+        }
+        return $result;
     }
 }
 
@@ -37,16 +37,39 @@ class NonceTest extends \PHPUnit_Framework_TestCase
 
     public function testAttack()
     {
-        $hash = $this->loader->generate();
-        $actual = $this->loader->checkAttack();
-        $this->assertSame('Missing CSRF form token', $actual);
+        try
+        {
+            $this->loader->check();
+        }
+        catch (Exception $e)
+        {
+            $this->assertSame('Missing CSRF session token', $e->getMessage());
+        }
 
-        $_POST[$this->loader->getKey()] = true;
-        $actual = $this->loader->checkAttack();
-        $this->assertSame('Invalid CSRF token' , $actual);
+        try
+        {
+            $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
+            $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
+            $hash = $this->loader->generate();
+            $this->loader->check();
+        }
+        catch (Exception $e)
+        {
+            $this->assertSame('Missing CSRF form token', $e->getMessage());
+        }
+
+        try
+        {
+            $_POST[$this->loader->getKey()] = true;
+            $this->loader->check();
+        }
+        catch (Exception $e)
+        {
+            $this->assertSame('Invalid CSRF token' , $e->getMessage());
+        }
 
         $_POST[$this->loader->getKey()] = $hash;
-        $actual = $this->loader->checkAttack();
-        $this->assertSame('CSRF check passed' , $actual);
+        $actual = $this->loader->check();
+        $this->assertTrue($actual);
     }
 }
