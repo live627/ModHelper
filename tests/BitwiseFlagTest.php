@@ -41,7 +41,7 @@ class MockBitwiseFlag extends \ModHelper\BitwiseFlag
         $this->setFlag(self::FLAG_ADMIN, $value);
     }
 
-    function __toStringt()
+    function __toString()
     {
         return $this->flags;
     }
