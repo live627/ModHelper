@@ -25,12 +25,12 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
     {
         $this->linktree = new MockLinktree;
 
-        $this->linktree->addNamespace(
+        $this->linktree->add(
             'Foo',
             '/vendor/foo'
         );
 
-        $this->linktree->addNamespace(
+        $this->linktree->add(
             'BarDoom',
             '/vendor/foo.bardoom'
         );
