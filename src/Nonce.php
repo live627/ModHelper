@@ -50,7 +50,7 @@ class Nonce
 	 */
 	public function check()
 	{
-		if ($this->hash = (false !== Session::get($this->key))) {
+		if ($this->hash = (false === Session::get($this->key))) {
 			throw new Exceptions\MissingDataException('Missing CSRF session token');
 		}
 
