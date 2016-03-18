@@ -8,7 +8,7 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->l = new \ModHelper\Linktree;
+        $this->l = new \ModHelper\Linktree();
 
         $this->l->add(
             'Foo',
