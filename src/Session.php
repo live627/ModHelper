@@ -16,7 +16,7 @@ class Session
      * @param string $key   name the data to save
      * @param string $value the data to save
      */
-    public static function set($key, $value = false)
+    public static function put($key, $value = false)
     {
         /**
         * Check whether session is set in array or not
