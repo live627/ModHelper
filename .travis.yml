@@ -13,3 +13,6 @@ addons:
 before_script: composer install
 
 script: phpunit --bootstrap vendor/autoload.php
+
+after_script:
+  - php composer/bin/test-reporter
