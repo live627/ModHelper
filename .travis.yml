@@ -6,9 +6,9 @@ php:
   - '7.0'
   - hhvm
 
-matrix:
-  allow_failures:
-    - php: hhvm
+addons:
+    code_climate:
+        repo_token: 82ab09cf8faf528872eb06280fe0f8371ebf8b2fb328f44dd92f99f3e979cd4f
 
 before_script: composer install
 
