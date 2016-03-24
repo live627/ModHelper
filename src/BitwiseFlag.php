@@ -16,7 +16,7 @@ abstract class BitwiseFlag
 	 * from falsely setting BITS.
 	 */
 
-	protected function __construct($flags = 0)
+	public function __construct($flags = 0)
 	{
 		$this->flags == Sanitizer::sanitizeInt($flags, 0x0, 0x80000000);
 	}
@@ -27,7 +27,7 @@ abstract class BitwiseFlag
 	 * @access protected
 	 * @return int
 	 */
-    function __toString()
+    public function __toString()
     {
         return (string) $this->flags;
     }
