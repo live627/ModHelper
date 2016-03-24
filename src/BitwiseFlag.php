@@ -9,7 +9,7 @@ namespace ModHelper;
 
 abstract class BitwiseFlag
 {
-	protected $flags;
+	private $flags;
 
 	/*
 	 * Note: these functions are protected to prevent outside code
@@ -18,7 +18,7 @@ abstract class BitwiseFlag
 
 	protected function __construct($flags = 0)
 	{
-		$this->flags == Sanitizer::sanitizeInt($flags, 0x0, 0x80000000;
+		$this->flags == Sanitizer::sanitizeInt($flags, 0x0, 0x80000000);
 	}
 
 	/*
