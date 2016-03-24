@@ -40,11 +40,6 @@ class MockBitwiseFlag extends \ModHelper\BitwiseFlag
     public function setAdmin($value){
         $this->setFlag(self::FLAG_ADMIN, $value);
     }
-
-    function __toString()
-    {
-        return (string) $this->flags;
-    }
 }
 
 class BitwiseFlagTest extends \PHPUnit_Framework_TestCase
