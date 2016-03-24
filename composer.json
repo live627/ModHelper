@@ -1,24 +1,24 @@
 {
-	"name": "ModHelper",
-	"type": "smf-module",
-	"description": "Collection of scripts to act as the backbone for SMF mods",
-	"keywords": ["SMF","modifications"],
-	"homepage": "https://github.com/live627/ModHelper",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "John Rayes",
-			"email": "live627@gmail.com",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": ">=5.5.0",
-        	"satooshi/php-coveralls": "1.0.*"
-	},
-	"autoload": {
-		"psr-4": {
-			"ModHelper\\": "src/"
-		}
-	}
+  "name": "ModHelper",
+  "type": "smf-module",
+  "description": "Collection of scripts to act as the backbone for SMF mods",
+  "keywords": ["SMF","modifications"],
+  "homepage": "https://github.com/live627/ModHelper",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "John Rayes",
+      "email": "live627@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "symfony/yaml": "3.0.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "ModHelper\\": "src/"
+    }
+  }
 }
