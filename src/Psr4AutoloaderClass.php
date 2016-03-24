@@ -43,7 +43,7 @@ class Psr4AutoloaderClass
 	public function addNamespace($prefix, $base_dir, $prepend = false)
 	{
 		// normalize namespace prefix
-		$prefix = trim($prefix, '\\');
+		$prefix = trim($prefix, '\\') . '\\';
 		// normalize the base directory with a trailing separator
 		$base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR) . '/';
 		// initialize the namespace prefix array
@@ -75,7 +75,7 @@ class Psr4AutoloaderClass
 		// class name to find a mapped file name
 		while (false !== $pos = strrpos($prefix, '\\')) {
 			// retain the trailing namespace separator in the prefix
-			$prefix = substr($class, 0, $pos);
+			$prefix = substr($class, 0, $pos + 1);
 			// the rest is the relative class name
 			$relative_class = substr($class, $pos + 1);
 			// try to load a mapped file for the prefix and relative class
@@ -83,6 +83,9 @@ class Psr4AutoloaderClass
 			if ($mapped_file) {
 				return $mapped_file;
 			}
+			// remove the trailing namespace separator for the next iteration
+			// of strrpos()
+			$prefix = rtrim($prefix, '\\');
 		}
 
 		// never found a mapped file
@@ -96,6 +99,7 @@ class Psr4AutoloaderClass
 	 * @param string $relative_class The relative class name.
 	 * @return mixed Boolean false if no mapped file can be loaded, or the
 	 * name of the mapped file that was loaded.
+	 * @return bool True if the file exists, false if not.
 	 */
 	protected function loadMappedFile($prefix, $relative_class)
 	{
