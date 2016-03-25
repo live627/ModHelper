@@ -31,7 +31,7 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
                  . 'YAML has been a popular data serialization format among '
                  . 'software developers mainly because it\'s human-readable.';
 
-        $expected = array('id' => 1, 'title' => $title, 'content' => $content, 'author' => 1, 'status' => 2);
+        $expected = array('id' => 1, 'title' => $title, 'content' => $content . "\n", 'author' => 1, 'status' => 2);
 
         $this->assertEquals($expected, $actual);
 
