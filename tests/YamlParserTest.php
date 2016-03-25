@@ -6,7 +6,7 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
 {
     private $parser;
 
-    public function setup()
+    protected function setUp()
     {
         $parser = new \ModHelper\YamlParser();
     }
