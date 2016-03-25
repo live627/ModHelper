@@ -58,6 +58,6 @@ class YamlParser
 
     public function put($filePath)
     {
-        file_put_contents($filePath, $this)
+        file_put_contents($filePath, $this);
     }
 }
