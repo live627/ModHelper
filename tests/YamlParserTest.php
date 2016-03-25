@@ -8,11 +8,11 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $parser = new \ModHelper\YamlParser();
     }
 
     public function testArticleKeys()
     {
+        $parser = new \ModHelper\YamlParser();
         $parsed = $this->parser->load(__DIR__ . '/files/article.yml');
         $actual = array_keys($parsed);
         $expected = array('author', 'category', 'article', 'articleCategory');
