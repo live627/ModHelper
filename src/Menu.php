@@ -16,6 +16,7 @@ abstract class Menu
 	public function execute()
 	{
 		global $sourcedir;
+		$options = array();
 
 		foreach ($this->options as $item) {
 			$options[] = $item;
