@@ -1,0 +1,24 @@
+author:
+  0: { id: 1, name: "Brad Taylor", isActive: true }
+  1: { id: 2, name: "William O'Neil", isActive: false }
+
+category:
+  0: { id: 1, name: "PHP" }
+  1: { id: 2, name: "YAML" }
+  2: { id: 3, name: "XML" }
+
+article:
+  0:
+    id:      1
+    title:   "How to Use YAML in Your Next PHP Project"
+    content: >
+               YAML is a less-verbose data serialization format.
+               It stands for "YAML Ain't Markup Language".
+               YAML has been a popular data serialization format among
+               software developers mainly because it's human-readable.
+    author:  1
+    status : 2
+
+articleCategory:
+  0: { articleId: 1, categoryId: 1 }
+  1: { articleId: 1, categoryId: 2 }
