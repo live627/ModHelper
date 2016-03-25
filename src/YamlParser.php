@@ -19,7 +19,6 @@ class YamlParser
     private $parser;
     private $data;
 
-
     public function __construct()
     {
         $this->parser = new Parser();
@@ -28,7 +27,7 @@ class YamlParser
     public function load($filePath)
     {
         try {
-            $this->data = $yaml->parse(file_get_contents($filePath));
+            $this->data = $parser->parse(file_get_contents($filePath));
         }
         catch (ParseException $e) {
             throw new YamlParserException($e->getMessage(), $e->getCode(), $e);
