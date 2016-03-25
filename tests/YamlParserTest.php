@@ -5,7 +5,7 @@ namespace ModHelper\Tests;
 class YamlParserTest extends \PHPUnit_Framework_TestCase
 {
     private $loader;
-    private $loader;
+    private $parsed;
 
     protected function setUp()
     {
