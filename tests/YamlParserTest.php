@@ -5,16 +5,17 @@ namespace ModHelper\Tests;
 class YamlParserTest extends \PHPUnit_Framework_TestCase
 {
     private $loader;
+    private $loader;
 
     protected function setUp()
     {
-        $loader = new \ModHelper\YamlParser();
-        $parsed = $this->loader->load(__DIR__ . '/files/article.yml');
+        $this->loader = new \ModHelper\YamlParser();
+        $this->parsed = $this->loader->load(__DIR__ . '/files/article.yml');
     }
 
     public function testArticleKeys()
     {
-        $actual = array_keys($parsed);
+        $actual = array_keys($this->parsed);
         $expected = array('author', 'category', 'article', 'articleCategory');
 
         $this->assertEquals($expected, $actual);
@@ -22,7 +23,7 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
 
     public function testArticle()
     {
-        $actual = $parsed['article'][0];
+        $actual = $this->parsed['article'][0];
         $title = 'How to Use YAML in Your Next PHP Project';
         $content = 'YAML is a less-verbose data serialization format. '
                  . 'It stands for "YAML Ain\'t Markup Language". '
