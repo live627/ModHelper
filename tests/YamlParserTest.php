@@ -29,7 +29,7 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
         $content = 'YAML is a less-verbose data serialization format. '
                  . 'It stands for "YAML Ain\'t Markup Language". '
                  . 'YAML has been a popular data serialization format among '
-                 . 'software developers mainly because it\'s human-readable.\n';
+                 . 'software developers mainly because it\'s human-readable.';
 
         $expected = array('id' => 1, 'title' => $title, 'content' => $content, 'author' => 1, 'status' => 2);
 
