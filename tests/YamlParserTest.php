@@ -17,7 +17,7 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
         $actual = array_keys($parsed);
         $expected = array('author', 'category', 'article', 'articleCategory');
 
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals($expected, $actual);}
 
     public function testArticle()
     {
