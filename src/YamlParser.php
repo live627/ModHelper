@@ -30,7 +30,7 @@ class YamlParser
             $this->data = $this->parser->parse(file_get_contents($filePath));
         }
         catch (ParseException $e) {
-            throw new YamlParserException($e->getMessage(), $e->getCode(), $e);
+            throw new Exceptions\YamlParserException($e->getMessage(), $e->getCode(), $e);
         }
     }
 
