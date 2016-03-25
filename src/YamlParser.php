@@ -49,7 +49,26 @@ class YamlParser
         return $this;
     }
 
-    function __toString()
+    /**
+     * Retrieve the object.
+     *
+     * @access public
+     * @return string
+     * @since 2.0
+     */
+    public function get()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Retrieve the object as a YAML string.
+     *
+     * @access public
+     * @return string
+     * @since 2.0
+     */
+    public function __toString()
     {
         $dumper = new Dumper();
         return $dumper->dump($this->data, 2);
