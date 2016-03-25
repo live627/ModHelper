@@ -25,13 +25,13 @@ class YamlParser
         $this->parser = new Parser();
     }
 
-    public function __invoke($filePath)
+    public function load($filePath)
     {
         try {
             $this->data = $yaml->parse(file_get_contents($filePath));
         }
         catch (ParseException $e) {
-            throw new Exceptions\YamlParserException($e->getMessage(), $e->getCode(), $e);
+            throw new YamlParserException($e->getMessage(), $e->getCode(), $e);
         }
     }
 
@@ -58,6 +58,6 @@ class YamlParser
 
     public function put($filePath)
     {
-        file_put_contents($filePath, $this);
+        file_put_contents($filePath, $this)
     }
 }
