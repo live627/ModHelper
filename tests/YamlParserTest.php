@@ -10,7 +10,8 @@ class YamlParserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->loader = new \ModHelper\YamlParser();
-        $this->parsed = $this->loader->load(__DIR__ . '/files/article.yml');
+        $this->loader->load(__DIR__ . '/files/article.yml');
+        $this->parsed = $this->loader->get();
     }
 
     public function testArticleKeys()
