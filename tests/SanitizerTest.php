@@ -50,7 +50,7 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
         Sanitizer::sanitizeInt(0x1, 0x4, 0x8);
     }
 
-    public function testTooBig()
+    public function testInRange()
     {
         $this->assertSame(0x4, Sanitizer::sanitizeInt(0x4, 0x0, 0x8));
     }
