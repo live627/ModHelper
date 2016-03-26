@@ -53,7 +53,7 @@ class SimpleXMLElementTest extends \PHPUnit_Framework_TestCase
             '0785323435'
         );
 
-        $expectedXmlEl = new SimpleXMLElement('<root/>');
+        $expectedXmlEl = new \SimpleXMLElement('<root/>');
         foreach($array as $key => $value)
             $expectedXmlEl->addChild("item", $value);
 
