@@ -2,7 +2,7 @@
 
 namespace ModHelper\Tests;
 
-use \ModHelper\Sanitizer
+use \ModHelper\Sanitizer;
 
 $smcFunc['htmltrim'] = trim;
 $smcFunc['htmlspecialchars'] = htmlspecialchars;
