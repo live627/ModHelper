@@ -9,7 +9,7 @@ $smcFunc = [
     {
         return htmlspecialchars($string, $quote_style);
     },
-    'htmltrim' => function ($string) use ($utf8, $space_chars, $ent_check)
+    'htmltrim' => function ($string)
     {
         return trim($string);
     },
