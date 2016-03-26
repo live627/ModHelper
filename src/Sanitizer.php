@@ -78,7 +78,7 @@ class Sanitizer
 			if (filter_var($var, FILTER_VALIDATE_INT, ['min_range' => $min, 'max_range' => $max])) {
 				throw new \RangeException('$var is outside the xpected range (' . $min  . ', ' . $max . ')');
 			}
-			return max(min($val, $max), $min);
+			return max(min($var, $max), $min);
 		}
 
 		return $var;
