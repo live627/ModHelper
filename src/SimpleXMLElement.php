@@ -37,18 +37,19 @@ class SimpleXMLElement extends \SimpleXMLElement
      *
      * @param mixed $data input data
      * @param string $child name of first level child
-     * @return SimpleXmlElement
+     * @return string
      */
-    function array2XML(array $data, $child = 'item')
+    public function array2XML(array $data, $child = 'item')
     {
+		$node = $this;
         foreach ($data as $key => $val) {
             if (is_numeric($key)) {
                 $key = $child;
             }
             if (is_array($val)) {
-                $node  = $this->addChild($key, $this->array2XML($val, $child));
+                $node = $node->addChild($key, $node->array2XML($val, $child));
             } else {
-                $node  = $this->addChild($key, $val);
+                $node = $node->addChild($key, $val);
             }
         }
         return $node->asXML();
