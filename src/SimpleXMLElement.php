@@ -41,13 +41,13 @@ class SimpleXMLElement extends \SimpleXMLElement
      */
     public function array2XML(array $data, $child = 'item')
     {
-		$node = $this;
+        $node = $this;
         foreach ($data as $key => $val) {
             if (is_numeric($key)) {
                 $key = $child;
             }
             if (is_array($val)) {
-                $node = $this->addChild($key, $this->array2XML($val, $child));
+                $node = $node->addChild($key, $this->array2XML($val, $child));
             } else {
                 $node = $this->addChild($key, $val);
             }
