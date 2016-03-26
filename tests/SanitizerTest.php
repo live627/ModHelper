@@ -4,9 +4,9 @@ namespace ModHelper\Tests;
 
 use \ModHelper\Sanitizer;
 
-$smcFunc['htmltrim'] = trim;
-$smcFunc['htmlspecialchars'] = htmlspecialchars;
-$smcFunc['substr'] = substr;
+$smcFunc['htmltrim'] = trim();
+$smcFunc['htmlspecialchars'] = htmlspecialchars();
+$smcFunc['substr'] = substr();
 
 class SanitizerTest extends \PHPUnit_Framework_TestCase
 {
