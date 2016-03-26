@@ -2,18 +2,18 @@
 
 namespace ModHelper\Tests;
 
-use \ModHelper\Sanitizer;
+use \ModHelper\Sanitizer
 
 $smcFunc = [
     'htmlspecialchars' => function ($string, $quote_style = ENT_COMPAT)
     {
         return htmlspecialchars($string, $quote_style);
     },
-    'htmltrim' => function ($string) 
+    'htmltrim' => function ($string) use ($utf8, $space_chars, $ent_check)
     {
         return trim($string);
     },
-    'strlen' => function ($string) 
+    'strlen' => function ($string)
     {
         return strlen($string);
     }
@@ -34,7 +34,7 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
      */
     public function testMinNotInt()
     {
-        Sanitizer::sanitizeInt(0x10, [0x0]);
+        Sanitizer::sanitizeInt(0x10, [0x4], [0x8]);
     }
 
     /**
@@ -42,7 +42,7 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaxNotInt()
     {
-        Sanitizer::sanitizeInt(0x10, 0x0, [0x8]);
+        Sanitizer::sanitizeInt(0x10, 0x4, [0x8]);
     }
 
     /**
@@ -50,7 +50,7 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTooBig()
     {
-        Sanitizer::sanitizeInt(0x10, 0x0, 0x8);
+        Sanitizer::sanitizeInt(0x10, 0x4, 0x8);
     }
 
     /**
@@ -63,12 +63,12 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
 
     public function testInRange()
     {
-        $this->assertSame(0x4, Sanitizer::sanitizeInt(0x4, 0x0, 0x8));
+        $this->assertSame(0x4, Sanitizer::sanitizeInt(0x4, 0x4, 0x8));
     }
 
     public function testEmail()
     {
-        $this->assertTrue(Sanitizer::sanitizeEmail('live627@gmail.com'));
+        $this->assertSame('live627@gmail.com', Sanitizer::sanitizeEmail('live627@gmail.com'));
     }
 
     public function testText()
