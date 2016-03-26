@@ -21,30 +21,36 @@ class SimpleXMLElement extends \SimpleXMLElement
      * @return SimpleXmlElement
      */
     public function addChildWithCDATA($name, $value = NULL) {
-        $new_child = $this->addChild($name);
+        $xmlChild = $this->addChild($name);
 
-        if ($new_child !== NULL) {
-            $node = dom_import_simplexml($new_child);
+        if ($xmlChild !== NULL) {
+            $node = dom_import_simplexml($xmlChild);
             $no = $node->ownerDocument;
             $node->appendChild($no->createCDATASection($value));
         }
-        return $new_child;
+        return $xmlChild;
     }
 
     /**
      * Create XML using string or array
-     * http://stackoverflow.com/a/27222817
+     * http://php.net/manual/en/simplexmlelement.addchild.php#111087
      *
-     * @param array $data input data
-     * @param string $root name of first level child
+     * @param mixed $data input data
+     * @param string $child name of first level child
      * @return SimpleXmlElement
      */
-    public function array2XML(array $data, $root = null)
+    function array2XML(array $data, $child = 'item')
     {
-        $xml = new $this($root ? '<' . $root . '/>' : '<root/>');
-        array_walk_recursive($data, function($value, $key)use($xml){
-            $xml->addChild($key, $value);
-        });
-        return $xml;
+        foreach ($data as $key => $val) {
+            if (is_array($val)) {
+                if (is_numeric($key)) {
+                    $key = $child;
+                }
+                $this->addChild($this, $this->array2XML($val, $child));
+            } else {
+                $this->addChild($key, $val);
+            }
+        }
+        return $this;
     }
 }
