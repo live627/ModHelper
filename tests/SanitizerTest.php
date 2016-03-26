@@ -63,7 +63,7 @@ class SanitizerTest extends \PHPUnit_Framework_TestCase
 
     public function testInRange()
     {
-        $this->assertSame(0x4, Sanitizer::sanitizeInt(0x1, 0x4, 0x8));
+        $this->assertSame(0x1, Sanitizer::sanitizeInt(0x1, 0x4, 0x8));
     }
 
     public function testEmail()
