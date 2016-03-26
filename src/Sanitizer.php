@@ -88,7 +88,6 @@ class Sanitizer
 	{
 		global $txt;
 		$sanitized = filter_var(self::sanitizeText($var), FILTER_VALIDATE_EMAIL);
-		isBannedEmail($sanitized, 'cannot_post', sprintf($txt['you_are_post_banned'], $txt['guest_title']));
 		return $sanitized;
 	}
 }
