@@ -17,10 +17,7 @@ class SimpleXMLElementTest extends \PHPUnit_Framework_TestCase
         $this->loader->addChildWithCDATA('title', 'Site Title');
         $this->loader->addAttribute('lang', 'en');
 
-        $this->assertEquals('<?xml version="1.0"?>
-<root>
-<title lang="en"><![CDATA[Site Title]]></title>
-</root>', $this->loader->asXML());
+        $this->assertEquals('<root><title lang="en"><![CDATA[Site Title]]></title></root>', $this->loader->asXML());
     }
 
     public function testInstance() {
