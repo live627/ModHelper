@@ -65,7 +65,7 @@ class Sanitizer
 	public static function sanitizeInt($var, $min = null, $max = null)
 	{
 		if (!is_int($var)) {
-			throw new InvalidArgumentException('$var is expeceted to be an integer');
+			throw new \InvalidArgumentException('$var is expeceted to be an integer');
 		}
 		$var = (int) $var;
 		if (!empty($min) && !empty($max)) {
