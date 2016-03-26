@@ -24,6 +24,9 @@ class YamlParser
         $this->parser = new Parser();
     }
 
+    /**
+     * @param string $filePath
+     */
     public function load($filePath)
     {
         try {
