@@ -2,7 +2,7 @@
 
 namespace ModHelper\Tests;
 
-use \ModHelper\Sanitizer
+use \ModHelper\Sanitizer;
 
 $smcFunc = [
     'htmlspecialchars' => function ($string, $quote_style = ENT_COMPAT)
