@@ -46,7 +46,7 @@ class SimpleXMLElement extends \SimpleXMLElement
                 if (is_numeric($key)) {
                     $key = $child;
                 }
-                $this->addChild($this, $this->array2XML($val, $child));
+                $this->addChild($key, $this->array2XML($val, $child));
             } else {
                 $this->addChild($key, $val);
             }
