@@ -42,10 +42,10 @@ class SimpleXMLElement extends \SimpleXMLElement
     function array2XML(array $data, $child = 'item')
     {
         foreach ($data as $key => $val) {
+            if (is_numeric($key)) {
+                $key = $child;
+            }
             if (is_array($val)) {
-                if (is_numeric($key)) {
-                    $key = $child;
-                }
                 $this->addChild($key, $this->array2XML($val, $child));
             } else {
                 $this->addChild($key, $val);
