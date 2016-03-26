@@ -46,11 +46,11 @@ class SimpleXMLElement extends \SimpleXMLElement
                 $key = $child;
             }
             if (is_array($val)) {
-                $this->addChild($key, $this->array2XML($val, $child));
+                $node  = $this->addChild($key, $this->array2XML($val, $child));
             } else {
-                $this->addChild($key, $val);
+                $node  = $this->addChild($key, $val);
             }
         }
-        return $this;
+        return $node->asXML();
     }
 }
