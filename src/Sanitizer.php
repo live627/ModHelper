@@ -57,6 +57,11 @@ class Sanitizer
 		return $var;
 	}
 
+	/**
+	 * @param integer $var
+	 * @param integer $min
+	 * @param integer $max
+	 */
 	public static function sanitizeInt($var, $min = null, $max = null)
 	{
 		if (!is_int($var)) {
