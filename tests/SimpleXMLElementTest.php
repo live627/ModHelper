@@ -9,7 +9,7 @@ class SimpleXMLElementTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $loader = new \ModHelper\SimpleXMLElement('<root/>');
+        $this->loader = new \ModHelper\SimpleXMLElement('<root/>');
         $this->expectedXmlEl = new \SimpleXMLElement('<root/>');
     }
 
@@ -60,7 +60,7 @@ class SimpleXMLElementTest extends \PHPUnit_Framework_TestCase
             31,
             '0785323435'
         );
- 
+
         foreach ($array as $key => $value)
             $this->expectedXmlEl->addChild('item', $value);
 
