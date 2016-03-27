@@ -52,7 +52,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('value', $this->c[$this->c]);
     }
 
-    public function testGet()
+    public function testUnset()
     {
         unset($this->c[1]);
         unset($this->c['1']);
