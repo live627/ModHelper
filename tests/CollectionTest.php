@@ -39,6 +39,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
+        $this->assertNull($this->c[	1]);
         $this->assertSame('value', $this->c[1]);
         $this->assertSame('value', $this->c['1']);
         $this->assertSame('value', $this->c['01']);
@@ -55,11 +56,11 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         unset($this->c[TRUE]);
         unset($this->c[1.1]);
         unset($this->c[NULL]);
-        $this->assertCount(0, count($this->c));
+        $this->assertCount(0, $this->c);
     }
 
     public function testCount()
     {
-        $this->assertCount(6, count($this->c));
+        $this->assertCount(6, $this->c);
     }
 }
