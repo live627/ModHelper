@@ -12,11 +12,11 @@ class MockCollection extends \ModHelper\Collection implements \Countable
 
 class CollectionTest extends \PHPUnit_Framework_TestCase
 {
-    protected $l;
+    protected $c;
 
     protected function setUp()
     {
-        $this->l = new MockCollection;
+        $this->c = new MockCollection;
 
         $this->c[1] = 'value';
         $this->c['1'] = 'value';
