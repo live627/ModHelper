@@ -12,9 +12,9 @@ class Collection implements \IteratorAggregate, \ArrayAccess
 	 * The array that holds all the items collected by the object.
 	 *
 	 * @var array
-	 * @access private
+	 * @access protected
 	 */
-	private $items = array();
+	protected $items = array();
 
 	/**
 	 * Assigns a value to the specified offset
