@@ -24,18 +24,17 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->c[TRUE] = 'value';
         $this->c[1.1] = 'value';
         $this->c[NULL] = 'value';
-        $this->c[$this->c] = 'value';
     }
 
     public function testExists()
     {
+        $this->assertFalse(isset($this->c[11]));
         $this->assertTrue(isset($this->c[1]));
         $this->assertTrue(isset($this->c['1']));
         $this->assertTrue(isset($this->c['01']));
         $this->assertTrue(isset($this->c[TRUE]));
         $this->assertTrue(isset($this->c[1.1]));
         $this->assertTrue(isset($this->c[NULL]));
-        $this->assertTrue(isset($this->c[$this->c]));
     }
 
     public function testGet()
@@ -46,7 +45,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('value', $this->c[TRUE]);
         $this->assertSame('value', $this->c[1.1]);
         $this->assertSame('value', $this->c[NULL]);
-        $this->assertSame('value', $this->c[$this->c]);
     }
 
     public function testUnset()
@@ -57,12 +55,11 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         unset($this->c[TRUE]);
         unset($this->c[1.1]);
         unset($this->c[NULL]);
-        unset($this->c[$this->c]);
         $this->assertCount(0, count($this->c));
     }
 
     public function testCount()
     {
-        $this->assertCount(7, count($this->c));
+        $this->assertCount(6, count($this->c));
     }
 }
