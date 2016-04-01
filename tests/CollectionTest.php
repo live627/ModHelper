@@ -19,43 +19,43 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->c = new MockCollection;
 
         $this->c[1] = 'value';
-        $this->c['1'] = 'value';
+        $this->c[42] = 'value';
         $this->c['01'] = 'value';
-        $this->c[TRUE] = 'value';
+        $this->c['macaroni and flees'] = 'value';
         $this->c[1.1] = 'value';
-        $this->c[NULL] = 'value';
+        $this->c['alphabet soup'] = 'value';
     }
 
     public function testExists()
     {
         $this->assertFalse(isset($this->c[11]));
         $this->assertTrue(isset($this->c[1]));
-        $this->assertTrue(isset($this->c['1']));
+        $this->assertTrue(isset($this->c[42]));
         $this->assertTrue(isset($this->c['01']));
-        $this->assertTrue(isset($this->c[TRUE]));
+        $this->assertTrue(isset($this->c['macaroni and flees']));
         $this->assertTrue(isset($this->c[1.1]));
-        $this->assertTrue(isset($this->c[NULL]));
+        $this->assertTrue(isset($this->c['alphabet soup']));
     }
 
     public function testGet()
     {
-        $this->assertNull($this->c[	1]);
+        $this->assertNull($this->c[11]);
         $this->assertSame('value', $this->c[1]);
-        $this->assertSame('value', $this->c['1']);
+        $this->assertSame('value', $this->c[42]);
         $this->assertSame('value', $this->c['01']);
-        $this->assertSame('value', $this->c[TRUE]);
+        $this->assertSame('value', $this->c['macaroni and flees']);
         $this->assertSame('value', $this->c[1.1]);
-        $this->assertSame('value', $this->c[NULL]);
+        $this->assertSame('value', $this->c['alphabet soup']);
     }
 
     public function testUnset()
     {
         unset($this->c[1]);
-        unset($this->c['1']);
+        unset($this->c[42]);
         unset($this->c['01']);
-        unset($this->c[TRUE]);
+        unset($this->c['macaroni and flees']);
         unset($this->c[1.1]);
-        unset($this->c[NULL]);
+        unset($this->c['alphabet soup']);
         $this->assertCount(0, $this->c);
     }
 
