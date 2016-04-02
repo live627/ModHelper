@@ -31,7 +31,7 @@ class Linktree
 		if ($after !== null)
 			$item['extra_after'] = $after;
 
-		$this->collection->append([$item]);
+		$this->collection->append($item);
 
 		return $this;
 	}
