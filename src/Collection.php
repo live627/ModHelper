@@ -7,18 +7,7 @@ namespace ModHelper;
  * @since 1.0
  */
 class Collection extends \ArrayObject 
-{	/**
-	 * Retrieve an external iterator.
-	 *
-	 * @access public
-	 * @abstracting \IteratorAggregate
-	 * @since 1.0
-	 */
-	public function getIterator()
-	{
-		yield $this;
-	}
-
+{
 	/**
 	 * Construct the object.
 	 *
