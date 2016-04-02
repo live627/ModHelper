@@ -32,4 +32,7 @@ class Collection extends \ArrayObject
     function __construct(array $array=[]){
         parent::__construct($array,parent::STD_PROP_LIST|parent::ARRAY_AS_PROPS);
     } 
+  public function addValue($v) {
+    return $this->offsetSet(NULL, $v);
+  } 
 }
