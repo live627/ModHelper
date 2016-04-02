@@ -38,7 +38,7 @@ class Hooks
 
 	public function __construct()
 	{
-		$this->collection = new ArrayObject([], ArrayObject::STD_PROP_LIST)();
+		$this->collection = new \ArrayObject([], \ArrayObject::STD_PROP_LIST);
 
 		return $this;
 	}
