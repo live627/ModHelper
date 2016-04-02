@@ -31,14 +31,14 @@ class Linktree
 		if ($after !== null)
 			$item['extra_after'] = $after
 
-		$this->collection->addValue([$item]);
+		$this->collection->append([$item]);
 
 		return $this;
 	}
 
 	public function __construct()
 	{
-		$this->collection = new Collection();
+		$this->collection = new ArrayObject([], ArrayObject::STD_PROP_LIST);
 
 		return $this;
 	}
