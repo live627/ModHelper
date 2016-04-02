@@ -29,7 +29,7 @@ class Collection extends \ArrayObject
 	 * @abstracting \ArrayObject
 	 * @since 2.0
 	 */
-    function __construct(array $array){
+    function __construct(array $array=[]){
         parent::__construct($array,parent::STD_PROP_LIST|parent::ARRAY_AS_PROPS);
     } 
 }
