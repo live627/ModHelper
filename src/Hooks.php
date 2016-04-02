@@ -8,30 +8,37 @@ namespace ModHelper;
  */
 class Hooks
 {
-	protected $hooks = array();
+	protected $hooks = [];
 	protected $collection;
+
+	public function commit()
+	{
+		foreach ($this->collection as list ($hook, $function)) {
+			add_integration_function($hook, $function);
+		}
+	}
 
 	public function execute($add)
 	{
-		foreach ($this->collection as list ($hook, $function, $permanent)) {
+		foreach ($this->collection as list ($hook, $function)) {
 			if ($add) {
-				add_integration_function($hook, $function, $permanent);
+				add_integration_function($hook, $function, false);
 			} else {
-				remove_integration_function($hook, $function, $permanent);
+				remove_integration_function($hook, $function, false);
 			}
 		}
 	}
 
-	public function add($hook, $function, $permanent = true)
+	public function add($hook, $function)
 	{
-		$this->collection->addValue([$hook, $function, $permanent]);
+		$this->collection->append([$hook, $function]);
 
 		return $this;
 	}
 
 	public function __construct()
 	{
-		$this->collection = new Collection();
+		$this->collection = new ArrayObject([], ArrayObject::STD_PROP_LIST)();
 
 		return $this;
 	}
