@@ -37,6 +37,7 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'after bardoom'
         );
         $this->l->execute();
+        var_dump($context['linktree']);
     }
 
     public function testExistingLink()
