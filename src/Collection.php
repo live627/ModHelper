@@ -16,9 +16,7 @@ class Collection extends \ArrayObject
 	 */
 	public function getIterator()
 	{
-		foreach ($this as $id => $item) {
-			yield $id => $item;
-		}
+		yield $this;
 	}
 
 	/**
