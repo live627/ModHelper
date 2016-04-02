@@ -38,15 +38,13 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     {
         $expect = array(
             'Foo',
-            '/vendor/foo',
-            true
+            '/vendor/foo'
         );
         $this->assertContains($expect, $this->l->getHooks());
 
         $expect = array(
             'BarDoom',
-            '/vendor/foo.bardoom',
-            true
+            '/vendor/foo.bardoom'
         );
         $this->assertContains($expect, $this->l->getHooks());
     }
@@ -55,8 +53,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     {
         $expect = array(
             'Baz Dib',
-            '/vendor/baz.dib',
-            true
+            '/vendor/baz.dib'
         );
         $this->assertNotContains($expect, $this->l->getHooks());
     }
