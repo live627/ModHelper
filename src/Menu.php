@@ -16,7 +16,7 @@ abstract class Menu
 	public function execute()
 	{
 		global $sourcedir;
-		$options = array();
+		$options = [];
 
 		foreach ($this->options as $item) {
 			$options[] = $item;
@@ -41,7 +41,7 @@ abstract class Menu
 	 */
 	public function addArea($id, $area)
 	{
-		$this->areas->addValue([$id => $areas]);
+		$this->areas->$id = $area;
 	}
 
 	/**
@@ -50,17 +50,17 @@ abstract class Menu
 	 * @access public
 	 * @return void
 	 */
-	public function addOption($id, $val)
+	public function addOption($id, $option)
 	{
-		$this->options->addValue([$id => $val]);
+		$this->options->$id = $option;
 	}
 
 	public function __construct($id, $title)
 	{
 		$this->id = $id;
 		$this->title = $title;
-		$this->options = new Collection();
-		$this->areas = new Collection();
+		$this->options = new ArrayObject([], ArrayObject::STD_PROP_LIST);
+		$this->areas = new ArrayObject([], ArrayObject::STD_PROP_LIST);
 	}
 
 }
