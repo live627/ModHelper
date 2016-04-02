@@ -4,7 +4,7 @@ namespace ModHelper;
 
 /**
  * @package ModHelper
- * @since 1.0
+ * @since 1.1
  */
 class Linktree
 {
@@ -38,7 +38,7 @@ class Linktree
 
 	public function __construct()
 	{
-		$this->collection = new ArrayObject([], ArrayObject::STD_PROP_LIST);
+		$this->collection = new \ArrayObject([], \ArrayObject::STD_PROP_LIST);
 
 		return $this;
 	}
