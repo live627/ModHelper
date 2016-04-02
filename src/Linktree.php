@@ -19,7 +19,7 @@ class Linktree
 		}
 	}
 
-	public function add($name, $url = null, $before = null, $after = null, $first = false)
+	public function add($name, $url = null, $before = null, $after = null)
 	{
 		$item = array(
 			'name' => $name,
@@ -29,7 +29,7 @@ class Linktree
 		if ($before !== null)
 			$item['extra_before'] = $before;
 		if ($after !== null)
-			$item['extra_after'] = $after
+			$item['extra_after'] = $after;
 
 		$this->collection->append([$item]);
 
