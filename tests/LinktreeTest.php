@@ -42,18 +42,18 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
     public function testExistingLink()
     {
         $expect = array(
-            'Foo',
-            '/vendor/foo',
-            'before foo',
-            'after foo'
+            'name' => 'Foo',
+            'url' => '/vendor/foo',
+            'extra_before' => 'before foo',
+            'extra_after' => 'after foo'
         );
         $this->assertContains($expect, $this->l->getLinktree());
 
         $expect = array(
-            'BarDoom',
-            '/vendor/foo.bardoom',
-            'before bardoom',
-            'after bardoom'
+            'name' => 'BarDoom',
+            'url' => '/vendor/foo.bardoom',
+            'extra_before' => 'before bardoom',
+            'extra_after' => 'after bardoom'
         );
         $this->assertContains($expect, $this->l->getLinktree());
     }
@@ -61,10 +61,10 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
     public function testMissingLink()
     {
         $expect = array(
-            'Baz Dib',
-            '/vendor/baz.dib',
-            'before baz',
-            'after baz'
+            'name' => 'Baz Dib',
+            'url' => '/vendor/baz.dib',
+            'extra_before' => 'before baz',
+            'extra_after' => 'after baz'
         );
         $this->assertNotContains($expect, $this->l->getLinktree());
     }
