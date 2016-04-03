@@ -39,7 +39,7 @@ class Hooks
 	{
 		$this->collection = $collection;
 
-		foreach ($this->collection as list ($hook, $function)) {
+		foreach ($hooks as list ($hook, $function)) {
 			$this->add($hook, $function);
 		}
 
