@@ -2,7 +2,10 @@
   "name": "ModHelper",
   "type": "smf-module",
   "description": "Collection of scripts to act as the backbone for SMF mods",
-  "keywords": ["SMF","modifications"],
+  "keywords": [
+    "SMF",
+    "modifications"
+  ],
   "homepage": "https://github.com/live627/ModHelper",
   "license": "MIT",
   "authors": [
@@ -14,7 +17,11 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "symfony/yaml": "3.0.x-dev"
+    "symfony/yaml": "3.0.x-dev",
+    "symfony/dependency-injection": "2.7.*",
+    "symfony/config": "2.7.*",
+    "symfony/expression-language": "2.7.*",
+    "symfony/class-loader": "2.7.*"
   },
   "autoload": {
     "psr-4": {
