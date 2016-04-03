@@ -1,7 +1,7 @@
 parameters:
     my.hooks:
-        Foo: /vendor/foo
-        BarDoom: /vendor/foo.bardoom
+        ["Foo","/vendor/foo"]
+        ["BarDoom","/vendor/foo.bardoom"]
 
 services:
     collection:
