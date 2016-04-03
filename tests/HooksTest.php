@@ -12,7 +12,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        include __DIR__ . '/func.php';
+        include_once __DIR__ . '/func.php';
         $container = new ContainerBuilder();
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
         $loader->load('services.yml');
