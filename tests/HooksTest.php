@@ -17,7 +17,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
         $loader->load('services.yml');
         $this->l = $container->get('hooks');
-        $this->c = $container->get('hooks');
+        $this->c = $container->get('collection');
     }
 
     public function testExistingHook()
