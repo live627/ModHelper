@@ -2,36 +2,20 @@
 
 namespace ModHelper\Tests;
 
-class MockHooks extends \ModHelper\Hooks
-{
-    private $h;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-    public function getHooks()
-    {
-        if (!$this->h)
-            $this->h = iterator_to_array($this->collection);
-
-        return $this->h;
-    }
-}
-
-class HooksTest extends \PHPUnit_Framework_TestCase 
+class HooksTest extends \PHPUnit_Framework_TestCase
 {
     protected $l;
 
     protected function setUp()
     {
-        $this->l = new MockHooks;
-
-        $this->l->add(
-            'Foo',
-            '/vendor/foo'
-        );
-
-        $this->l->add(
-            'BarDoom',
-            '/vendor/foo.bardoom'
-        );
+        $container = new ContainerBuilder();
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+        $loader->load('services.yml');
+        $this->l = $container->get('hooks');
     }
 
     public function testExistingHook()
@@ -40,13 +24,13 @@ class HooksTest extends \PHPUnit_Framework_TestCase
             'Foo',
             '/vendor/foo'
         );
-        $this->assertContains($expect, $this->l->getHooks());
+        $this->assertContains($expect, $this->l->getArrayCopy());
 
         $expect = array(
             'BarDoom',
             '/vendor/foo.bardoom'
         );
-        $this->assertContains($expect, $this->l->getHooks());
+        $this->assertContains($expect, $this->l->getArrayCopy());
     }
 
     public function testMissingHook()
@@ -55,11 +39,11 @@ class HooksTest extends \PHPUnit_Framework_TestCase
             'Baz Dib',
             '/vendor/baz.dib'
         );
-        $this->assertNotContains($expect, $this->l->getHooks());
+        $this->assertNotContains($expect, $this->l->getArrayCopy());
     }
 
     public function testHookCount()
     {
-        $this->assertCount(2, $this->l->getHooks());
+        $this->assertCount(2, $this->l);
     }
 }
