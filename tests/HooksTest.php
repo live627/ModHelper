@@ -2,13 +2,14 @@
 
 namespace ModHelper\Tests;
 
-use \Symfony\Component\DependencyInjection\ContainerBuilder;
-use \Symfony\Component\Config\FileLocator;
-use \Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
     protected $l;
+    protected $c;
 
     protected function setUp()
     {
@@ -16,6 +17,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
         $loader->load('services.yml');
         $this->l = $container->get('hooks');
+        $this->c = $container->get('hooks');
     }
 
     public function testExistingHook()
@@ -24,13 +26,13 @@ class HooksTest extends \PHPUnit_Framework_TestCase
             'Foo',
             '/vendor/foo'
         );
-        $this->assertContains($expect, $this->l->getArrayCopy());
+        $this->assertContains($expect, $this->c->getArrayCopy());
 
         $expect = array(
             'BarDoom',
             '/vendor/foo.bardoom'
         );
-        $this->assertContains($expect, $this->l->getArrayCopy());
+        $this->assertContains($expect, $this->c->getArrayCopy());
     }
 
     public function testMissingHook()
@@ -39,11 +41,11 @@ class HooksTest extends \PHPUnit_Framework_TestCase
             'Baz Dib',
             '/vendor/baz.dib'
         );
-        $this->assertNotContains($expect, $this->l->getArrayCopy());
+        $this->assertNotContains($expect, $this->c->getArrayCopy());
     }
 
     public function testHookCount()
     {
-        $this->assertCount(2, $this->l);
+        $this->assertCount(2, $this->cc);
     }
 }
