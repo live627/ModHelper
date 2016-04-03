@@ -8,7 +8,6 @@ namespace ModHelper;
  */
 class Hooks
 {
-	protected $hooks = [];
 	protected $collection;
 
 	public function commit()
@@ -36,9 +35,13 @@ class Hooks
 		return $this;
 	}
 
-	public function __construct()
+	public function __construct(Collection $collection, array $hooks)
 	{
-		$this->collection = new \ArrayObject([], \ArrayObject::STD_PROP_LIST);
+		$this->collection = $collection;
+
+		foreach ($this->collection as list ($hook, $function)) {
+			$this->add($hook, $function);
+		}
 
 		return $this;
 	}
