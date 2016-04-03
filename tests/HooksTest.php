@@ -2,9 +2,9 @@
 
 namespace ModHelper\Tests;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use \Symfony\Component\DependencyInjection\ContainerBuilder;
+use \Symfony\Component\Config\FileLocator;
+use \Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
