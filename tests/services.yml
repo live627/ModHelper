@@ -11,4 +11,4 @@ services:
         arguments: ["@collection"]
     hooks:
         class:     ModHelper\Hooks
-        arguments: ["@collection","%my.hook%s"]
+        arguments: ["@collection","%my.hooks%"]
