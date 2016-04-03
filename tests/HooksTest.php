@@ -1,11 +1,5 @@
 <?php
 
-namespace ModHelper\Tests;
-
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-
 // Add a function for integration hook.
 function add_integration_function($hook, $function, $permanent = true)
 {
@@ -37,6 +31,12 @@ function remove_integration_function($hook, $function)
     $functions = array_diff($functions, array($function));
     $modSettings[$hook] = implode(',', $functions);
 }
+
+namespace ModHelper\Tests;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
