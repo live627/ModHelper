@@ -25,14 +25,12 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         global $modSettings;
 
         $expect = array(
-            'Foo'=>
-            '/vendor/foo'
+            'Foo' => '/vendor/foo'
         );
         $this->assertArraySubset($expect, $modSettings);
 
         $expect = array(
-            'BarDoom'=>
-            '/vendor/foo.bardoom',
+            'BarDoom '=> '/vendor/foo.bardoom',
         );
         $this->assertArraySubset($expect, $modSettings);
     }
@@ -42,14 +40,36 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         global $modSettings;
 
         $this->assertCount(2, $modSettings);
+    }
+    
+    public function testRemoveHooks()
+    {
+        global $modSettings;
 
         $this->l->execute(false);
-        $this->assertCount(0, $modSettings);
-
-        $this->l->commit(true);
+        $this->assertArrayNotHasKey('Foo', $modSettings);
+        $this->assertArrayNotHasKey('BarDoom', $modSettings);
+        $this->assertNotContains('/vendor/foo', $modSettings);
+        $this->assertNotContains('/vendor/foo.bardoom', $modSettings);
         $this->assertCount(2, $modSettings);
+    }
+
+    public function testCommitHooks()
+    {
+        global $modSettings;
 
         $this->l->commit(false);
-        $this->assertCount(0, $modSettings);
+        $this->assertArrayNotHasKey('Foo', $modSettings);
+        $this->assertArrayNotHasKey('BarDoom', $modSettings);
+        $this->assertNotContains('/vendor/foo', $modSettings);
+        $this->assertNotContains('/vendor/foo.bardoom', $modSettings);
+        $this->assertCount(2, $modSettings);
+
+        $this->l->commit(true);
+        $this->assertArrayHasKey('Foo', $modSettings);
+        $this->assertArrayHasKey('BarDoom', $modSettings);
+        $this->assertContains('/vendor/foo', $modSettings);
+        $this->assertContains('/vendor/foo.bardoom', $modSettings);
+        $this->assertCount(2, $modSettings);
     }
 }
