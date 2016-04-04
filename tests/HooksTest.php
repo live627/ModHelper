@@ -24,29 +24,17 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     {
         global $modSettings;
 
-        var_dump($modSettings);
         $expect = array(
             'Foo'=>
             '/vendor/foo'
         );
-        $this->assertContains($expect, $modSettings);
+        $this->assertArraySubset($expect, $modSettings);
 
         $expect = array(
             'BarDoom'=>
             '/vendor/foo.bardoom',
         );
-        $this->assertContains($expect, $modSettings);
-    }
-
-    public function testMissingHook()
-    {
-        global $modSettings;
-
-        $expect = array(
-            'Baz Dib'=>
-            '/vendor/baz.dib'
-        );
-        $this->assertNotContains($expect, $modSettings);
+        $this->assertArraySubset($expect, $modSettings);
     }
 
     public function testHookCount()
