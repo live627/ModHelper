@@ -10,10 +10,14 @@ class Hooks
 {
 	protected $collection;
 
-	public function commit()
+	public function commit($add)
 	{
 		foreach ($this->collection as list ($hook, $function)) {
-			add_integration_function($hook, $function);
+			if ($add) {
+				add_integration_function($hook, $function);
+			} else {
+				remove_integration_function($hook, $function);
+			}
 		}
 	}
 
