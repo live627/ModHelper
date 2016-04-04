@@ -20,7 +20,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $this->l->execute(true);
     }
 
-    public function testExistingHook()
+    public function testExistingHooks()
     {
         global $modSettings;
 
@@ -30,9 +30,21 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $this->assertArraySubset($expect, $modSettings);
 
         $expect = array(
-            'BarDoom '=> '/vendor/foo.bardoom',
+            'BarDoom' => '/vendor/foo.bardoom'
         );
         $this->assertArraySubset($expect, $modSettings);
+    }
+
+    public function testMissingHook()
+    {
+        global $modSettings;
+
+        $expect = array(
+            'Baz Dib' => '/vendor/baz.dib'
+        );
+        $this->assertArrayNotHasKey('Baz Dib', $modSettings);
+        $this->assertNotContains('/vendor/baz.dib', $modSettings);
+        $this->assertCount(2, $modSettings);
     }
 
     public function testHookCount()
@@ -47,8 +59,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         global $modSettings;
 
         $this->l->execute(false);
-        $this->assertArrayNotHasKey('Foo', $modSettings);
-        $this->assertArrayNotHasKey('BarDoom', $modSettings);
+        $this->assertArrayHasKey('Foo', $modSettings);
+        $this->assertArrayHasKey('BarDoom', $modSettings);
         $this->assertNotContains('/vendor/foo', $modSettings);
         $this->assertNotContains('/vendor/foo.bardoom', $modSettings);
         $this->assertCount(2, $modSettings);
@@ -59,8 +71,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         global $modSettings;
 
         $this->l->commit(false);
-        $this->assertArrayNotHasKey('Foo', $modSettings);
-        $this->assertArrayNotHasKey('BarDoom', $modSettings);
+        $this->assertArrayHasKey('Foo', $modSettings);
+        $this->assertArrayHasKey('BarDoom', $modSettings);
         $this->assertNotContains('/vendor/foo', $modSettings);
         $this->assertNotContains('/vendor/foo.bardoom', $modSettings);
         $this->assertCount(2, $modSettings);
