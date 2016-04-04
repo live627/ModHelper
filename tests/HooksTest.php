@@ -18,6 +18,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $loader->load('services.yml');
         $this->l = $container->get('hooks');
         $this->l->execute(true);
+        var_dump($modSettings);
     }
 
     public function testExistingHook()
