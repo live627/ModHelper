@@ -42,5 +42,14 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         global $modSettings;
 
         $this->assertCount(2, $modSettings);
+
+        $this->l->execute(false);
+        $this->assertCount(0, $modSettings);
+
+        $this->l->commit(true);
+        $this->assertCount(2, $modSettings);
+
+        $this->l->commit(false);
+        $this->assertCount(0, $modSettings);
     }
 }
