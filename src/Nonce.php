@@ -35,7 +35,7 @@ class Nonce
 	public function __construct($key = null, $ttl = 900)
 	{
 		if (!isset($key)) {
-			$this->key = 'csrf_' . $this->randomString(8);
+			$this->key = 'csrf_' . random_bytes(8);
 		}
 		if (!is_int($ttl)) {
 			throw new \InvalidArgumentException('Integer expected: $ttl');
@@ -131,30 +131,8 @@ class Nonce
 	public function generate()
 	{
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
-		$this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . $this->randomString(32));
+		$this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . random_bytes(32));
 		Session::put($this->key, $this->hash);
 		return $this->hash;
-	}
-
-	/**
-	 * Generates a random string of given $length.
-	 *
-	 * @param int $length The string length.
-	 * @return string The randomly generated string.
-	 */
-	private function randomString($length)
-	{
-		if (!is_int($length)) {
-			throw new \InvalidArgumentException('Integer expected: $length');
-		}
-		$seed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijqlmnopqrtsuvwxyz0123456789';
-		$max = strlen($seed) - 1;
-
-		$string = '';
-		for ($i = 0; $i < $length; ++$i) {
-			$string .= $seed{intval(mt_rand(0.0, $max))};
-		}
-
-		return $string;
 	}
 }
