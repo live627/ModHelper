@@ -39,9 +39,6 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     {
         global $modSettings;
 
-        $expect = array(
-            'Baz Dib' => '/vendor/baz.dib'
-        );
         $this->assertArrayNotHasKey('Baz Dib', $modSettings);
         $this->assertNotContains('/vendor/baz.dib', $modSettings);
         $this->assertCount(2, $modSettings);
