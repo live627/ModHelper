@@ -17,6 +17,7 @@
   ],
   "require": {
     "php": ">=5.5.0",
+    "suki/ohara": "~1.0",
     "symfony/yaml": "3.0.x-dev",
     "symfony/dependency-injection": "2.7.*",
     "symfony/config": "2.7.*",
