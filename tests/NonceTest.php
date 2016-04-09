@@ -46,13 +46,13 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $actual = $this->loader->checkAttack();
         $this->assertSame('Missing CSRF session token', $actual);
 
-        $_SESSION[$this->loader->getKey()] = null;
+        $_SESSION[$this->loader->getKey()] = true;
         $actual = $this->loader->checkAttack();
         $this->assertSame('Missing CSRF form token', $actual);
 
         $_POST[$this->loader->getKey()] = true;
         $actual = $this->loader->checkAttack();
-        $this->assertSame('Invalid CSRF token', $actual);
+        $this->assertSame('Form origin does not match token origin.', $actual);
         
         $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
         $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
