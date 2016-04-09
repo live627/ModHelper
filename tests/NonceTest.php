@@ -32,7 +32,7 @@ class NonceTest extends \PHPUnit_Framework_TestCase
     public function testKey()
     {
         $actual = $this->loader->getKey();
-        $this->assertContains('crlf_', $actual);
+        $this->assertContains('csrf_', $actual);
         
         $this->loader->setKey('trolololol');      
         $actual = $this->loader->getKey();
