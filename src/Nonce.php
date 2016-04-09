@@ -65,12 +65,12 @@ class Nonce
 		}
 
 		// Check if session token matches form token
-		if ($_POST[$this->key] != $this->hash) {
+		if ($_POST[$this->key] !== $this->hash) {
 			throw new Exceptions\BadCombinationException('Invalid CSRF token');
 		}
 
 		// Check for token expiration
-		if ($this->ttl != null && is_int($this->ttl) && intval(substr(base64_decode($this->hash), 0, 10)) + $this->ttl < time()) {
+		if ($this->ttl !== null && is_int($this->ttl) && intval(substr(base64_decode($this->hash), 0, 10)) + $this->ttl < time()) {
 			throw new \RangeException('CSRF token has expired.');
 		}
 
