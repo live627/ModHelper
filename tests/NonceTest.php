@@ -11,7 +11,7 @@ class MockNonce extends \ModHelper\Nonce
             $this->check();
             $result = 'CSRF check passed';
         }
-        catch (Exception $e)
+        catch (\Exception $e)
         {
             // CSRF attack detected
             $result = $e->getMessage();
@@ -43,8 +43,22 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         if (session_status() === PHP_SESSION_ACTIVE) {
             throw new RuntimeException('Failed to start the session: already started by PHP.');
         }
+        $actual = $this->loader->checkAttack();
+        $this->assertSame('Missing CSRF session token', $actual);
+
+        $hash = $this->loader->generate();
+        $actual = $this->loader->checkAttack();
+        $this->assertSame('Missing CSRF form token', $actual);
+
+        $_POST[$this->loader->getKey()] = true;
+        $actual = $this->loader->checkAttack();
+        $this->assertSame('Invalid CSRF token', $actual);
+        
         $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
         $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
+        $actual = $this->loader->checkAttack();
+        $this->assertSame('Invalid CSRF token', $actual);
+        
         $hash = $this->loader->generate();
         $_POST[$this->loader->getKey()] = $hash;
         $actual = $this->loader->check();
