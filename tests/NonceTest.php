@@ -68,7 +68,7 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
         $hash = $this->loader->generate();
         $_SERVER['REMOTE_ADDR'] = '';
-        $_SERVER['HTTP_USER_AGENT'] = ''
+        $_SERVER['HTTP_USER_AGENT'] = '';
         $_POST[$this->loader->getKey()] = true;
         $actual = $this->loader->checkAttack();
         $this->assertSame('Form origin does not match token origin.', $actual);
