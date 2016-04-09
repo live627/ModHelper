@@ -35,7 +35,7 @@ class Nonce
 	public function __construct($key = null, $ttl = 900)
 	{
 		if (!isset($key)) {
-			$this->key = 'csrf_' . random_bytes(8);
+			$this->key = 'csrf_' . bin2hex(random_bytes(8));
 		}
 		if (!is_int($ttl)) {
 			throw new \InvalidArgumentException('Integer expected: $ttl');
@@ -131,7 +131,7 @@ class Nonce
 	public function generate()
 	{
 		// token generation (basically base64_encode any random complex string, time() is used for token expiration)
-		$this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . random_bytes(32));
+		$this->hash = base64_encode(time() . sha1($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']) . bin2hex(random_bytes(32)));
 		Session::put($this->key, $this->hash);
 		return $this->hash;
 	}
