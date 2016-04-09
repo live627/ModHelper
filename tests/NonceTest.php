@@ -29,10 +29,24 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $this->loader = new MockNonce;
     }
 
+    public function testKey()
+    {
+        $actual = $this->loader->getKey();
+        $this->assertContains('crlf_', $actual);
+        
+        $this->loader->setKey('trolololol');      
+        $actual = $this->loader->getKey();
+        $this->assertSame('trolololol', $actual);
+    }
+
     public function testTtl()
     {
         $actual = $this->loader->getTtl();
         $this->assertSame(900, $actual);
+        
+        $this->loader->setTtl(90);      
+        $actual = $this->loader->getTtl();
+        $this->assertSame(90, $actual);
     }
 
     public function testAttack()
@@ -50,17 +64,26 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $actual = $this->loader->checkAttack();
         $this->assertSame('Missing CSRF form token', $actual);
 
+        $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
+        $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
+        $hash = $this->loader->generate();
+        $_SERVER['REMOTE_ADDR'] = '';
+        $_SERVER['HTTP_USER_AGENT'] = ''
         $_POST[$this->loader->getKey()] = true;
         $actual = $this->loader->checkAttack();
         $this->assertSame('Form origin does not match token origin.', $actual);
-        
+
         $_SERVER['REMOTE_ADDR'] = 'ModHelper Test Suite';
         $_SERVER['HTTP_USER_AGENT'] = 'ModHelper';
         $actual = $this->loader->checkAttack();
         $this->assertSame('Invalid CSRF token', $actual);
-        
-        $hash = $this->loader->generate();
+
         $_POST[$this->loader->getKey()] = $hash;
+        $this->loader->setTtl(-90);  
+        $actual = $this->loader->checkAttack();
+        $this->assertSame('CSRF token has expired.', $actual);
+        
+        $this->loader->setTtl(90);  
         $actual = $this->loader->check();
         $this->assertTrue($actual);
     }
