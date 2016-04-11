@@ -40,16 +40,16 @@ class OharaTest extends PHPUnit_Framework_TestCase
     public function testText()
     {
         $actual = $this->loader->text('months')[2];
-        $this->assertSame('February', $actual)
+        $this->assertSame('February', $actual);
         $actual = $this->o->text('months')[2];
-        $this->assertSame('February', $actual)
+        $this->assertSame('February', $actual);
         $actual = $this->loader->text('months_title');
-        $this->assertSame('Months', $actual)
+        $this->assertSame('Months', $actual);
         $actual = $this->o->text('months_title');
-        $this->assertFalse($actual)
+        $this->assertFalse($actual);
         $actual = $this->loader->text('days_title');
-        $this->assertFalse($actual)
+        $this->assertFalse($actual);
         $actual = $this->o->text('days_title');
-        $this->assertFalse($actual)
+        $this->assertFalse($actual);
     }
 }
