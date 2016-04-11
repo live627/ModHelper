@@ -18,7 +18,7 @@ class MockOhara extends ModHelper\Ohara
 
 class MockSukiOhara extends Suki\Ohara
 {
-    public $name = __CLASS__;
+    public $name = 'MockOhara';
 
     public function __construct()
     {
