@@ -10,8 +10,13 @@ namespace ModHelper;
 
 abstract class A
 {
-    static function init()
+    protected static $instance;
+    final public static function getInstance()
     {
-        return new static();
+        return isset(static::$instance)
+            ? static::$instance
+            : static::$instance = new static;
     }
+    final private function __wakeup() {}
+    final private function __clone() {}
 }
