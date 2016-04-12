@@ -5,10 +5,10 @@ namespace ModHelper;
 /**
  * @package ModHelper
  * @since 1.0
- * @version 1.1
+ * @version 1.2
  */
 
-trait A
+abstract class A
 {
     static function init()
     {
