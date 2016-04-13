@@ -19,11 +19,7 @@
     "php": ">=5.5.0",
     "suki/ohara": "~1.0",
     "paragonie/random_compat": "~2.0",
-    "symfony/yaml": "3.0.x-dev",
-    "symfony/dependency-injection": "2.7.*",
-    "symfony/config": "2.7.*",
-    "symfony/expression-language": "2.7.*",
-    "symfony/class-loader": "2.7.*"
+    "gonzalo123/yaml2pimple": "~1.0"
   },
   "autoload": {
     "psr-4": {
