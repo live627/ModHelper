@@ -2,9 +2,9 @@
 
 namespace ModHelper\Tests;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use G\Yaml2Pimple\ContainerBuilder;
+use G\Yaml2Pimple\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class HooksTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,7 +16,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
         $loader->load('services.yml');
-        $this->l = $container->get('hooks');
+        $this->l = $container['hooks'];
+        // $this->l = $container->get('hooks');
         $this->l->execute(true);
     }
 
