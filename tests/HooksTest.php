@@ -2,6 +2,7 @@
 
 namespace ModHelper\Tests;
 
+use Pimple\Container;
 use G\Yaml2Pimple\ContainerBuilder;
 use G\Yaml2Pimple\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
@@ -13,8 +14,8 @@ class HooksTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         include_once __DIR__ . '/func.php';
-        $container = new ContainerBuilder();
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+        $container = new Container();
+        $loader = new YamlFileLoader(new ContainerBuilder($container), new FileLocator(__DIR__));
         $loader->load('services.yml');
         $this->l = $container['hooks'];
         // $this->l = $container->get('hooks');
