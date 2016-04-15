@@ -14,7 +14,7 @@ class Ohara extends \Suki\Ohara
 {
     protected $file;
 
-    public function __construct($file)
+    public function __construct($file = null)
     {
         $this->setRegistry();
         $this->file = $file;
@@ -64,16 +64,19 @@ class Ohara extends \Suki\Ohara
     /**
      * Gets a mod's config file, loads it and store it on {@link $_config}
      * @access public
-     * @return array
+     * @return array|null
      */
     protected function getConfigFile()
     {
+        if (is_null($this->file)) {
+            return null;
+        }
         if (!empty(static::$_config[$this->name])) {
             return static::$_config[$this->name];
         }
         try
         {
-            return static::$_config[$this->name] = new \Dragooon\YamlFileConfig\YamlFileConfig($file);
+            return static::$_config[$this->name] = new \Dragooon\YamlFileConfig\YamlFileConfig($this->file);
         }
         catch (\Exception $e)
         {
