@@ -71,16 +71,5 @@ class Ohara extends \Suki\Ohara
         if (is_null($this->file)) {
             return null;
         }
-        if (!empty(static::$_config[$this->name])) {
-            return static::$_config[$this->name];
-        }
-        try
-        {
-            return static::$_config[$this->name] = new \Dragooon\YamlFileConfig\YamlFileConfig($this->file);
-        }
-        catch (\Exception $e)
-        {
-            fatal_error($e->getMessage());
-        }
     }
 }
