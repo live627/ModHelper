@@ -1,14 +1,23 @@
 parameters:
-    my.hooks:
-        - [Foo, /vendor/foo]
-        - [BarDoom, /vendor/foo.bardoom]
+  my.hooks:
+    - [Foo, /vendor/foo]
+    - [BarDoom, /vendor/foo.bardoom]
+   my.links:
+    - - Foo
+      - /vendor/foo
+      - before foo
+      - after foo
+    - - BarDoom
+      - /vendor/foo.bardoom
+      - before bardoom
+      - after bardoom
 
 services:
-    collection:
-        class:     ModHelper\Collection
-    linktree:
-        class:     ModHelper\Linktree
-        arguments: ["@collection"]
-    hooks:
-        class:     ModHelper\Hooks
-        arguments: ["@collection","%my.hooks%"]
+  set:
+    class:   ModHelper\Set
+  linktree:
+    class:   ModHelper\Linktree
+    arguments: ["@set","%my.links%"]
+  hooks:
+    class:   ModHelper\Hooks
+    arguments: ["@set","%my.hooks%"]

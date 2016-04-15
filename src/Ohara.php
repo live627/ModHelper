@@ -12,9 +12,12 @@ namespace ModHelper;
 
 class Ohara extends \Suki\Ohara
 {
-    public function __construct()
+    protected $file;
+
+    public function __construct($file)
     {
         $this->setRegistry();
+        $this->file = $file;
     }
 
     /**
@@ -27,7 +30,7 @@ class Ohara extends \Suki\Ohara
     protected function setText($var)
     {
         global $txt;
-        // No var no set.
+
         if (empty($var)) {
             return false;
         }
@@ -51,11 +54,30 @@ class Ohara extends \Suki\Ohara
      */
     public function validate($var)
     {
-        // Forgot something?
         if (empty($this->_request)) {
             $this->setData();
         }
 
         return isset($this->_request[$var]);
+    }
+
+    /**
+     * Gets a mod's config file, loads it and store it on {@link $_config}
+     * @access public
+     * @return array
+     */
+    protected function getConfigFile()
+    {
+        if (!empty(static::$_config[$this->name])) {
+            return static::$_config[$this->name];
+        }
+        try
+        {
+            return static::$_config[$this->name] = new \Dragooon\YamlFileConfig\YamlFileConfig($file);
+        }
+        catch (\Exception $e)
+        {
+            fatal_error($e->getMessage());
+        }
     }
 }

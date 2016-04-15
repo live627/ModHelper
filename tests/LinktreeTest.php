@@ -2,40 +2,34 @@
 
 namespace ModHelper\Tests;
 
-class MockLinktree extends \ModHelper\Linktree
+use Pimple\Container;
+use G\Yaml2Pimple\ContainerBuilder;
+use G\Yaml2Pimple\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+
+class LinktreeTest extends \PHPUnit_Framework_TestCase
 {
+    protected $l;
+
     public function getLinktree()
     {
         global $context;
 
         return $context['linktree'];
     }
-}
-
-class LinktreeTest extends \PHPUnit_Framework_TestCase
-{
-    protected $l;
 
     protected function setUp()
     {
         global $context;
 
         $context['linktree'] = [];
-        $this->l = new MockLinktree;
 
-        $this->l->add(
-            'Foo',
-            '/vendor/foo',
-            'before foo',
-            'after foo'
-        );
+        $container = new ContainerBuilder();
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+        $loader->load('services.yml');
+        $this->l = $container['linktree'];
+        // $this->l = $container->get('linktree');
 
-        $this->l->add(
-            'BarDoom',
-            '/vendor/foo.bardoom',
-            'before bardoom',
-            'after bardoom'
-        );
         $this->l->execute();
     }
 
@@ -47,7 +41,7 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'extra_before' => 'before foo',
             'extra_after' => 'after foo'
         );
-        $this->assertContains($expect, $this->l->getLinktree());
+        $this->assertContains($expect, $this->getLinktree());
 
         $expect = array(
             'name' => 'BarDoom',
@@ -55,7 +49,7 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'extra_before' => 'before bardoom',
             'extra_after' => 'after bardoom'
         );
-        $this->assertContains($expect, $this->l->getLinktree());
+        $this->assertContains($expect, $this->getLinktree());
     }
 
     public function testMissingLink()
@@ -66,11 +60,11 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
             'extra_before' => 'before baz',
             'extra_after' => 'after baz'
         );
-        $this->assertNotContains($expect, $this->l->getLinktree());
+        $this->assertNotContains($expect, $this->getLinktree());
     }
 
     public function testLinkCount()
     {
-        $this->assertCount(2, $this->l->getLinktree());
+        $this->assertCount(2, $this->getLinktree());
     }
 }
