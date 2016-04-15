@@ -3,11 +3,13 @@ parameters:
     - [Foo, /vendor/foo]
     - [BarDoom, /vendor/foo.bardoom]
   my.links:
-    - - Foo
+    -
+      - Foo
       - /vendor/foo
       - before foo
       - after foo
-    - - BarDoom
+    -
+      - BarDoom
       - /vendor/foo.bardoom
       - before bardoom
       - after bardoom
