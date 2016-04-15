@@ -12,8 +12,4 @@ namespace ModHelper\Interfaces;
 interface Set extends Collection
 {
     function add($item);
-
-    function contains($item);
-
-    function remove($item);
 }

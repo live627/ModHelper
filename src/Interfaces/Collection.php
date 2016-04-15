@@ -9,4 +9,9 @@ namespace ModHelper\Interfaces;
  * @package ModHelper
  * @since 2.0
  */
-interface Collection extends \Countable, \IteratorAggregate {}
+interface Collection extends \Countable, \IteratorAggregate
+{
+    function contains($item);
+
+    function remove($item);
+}

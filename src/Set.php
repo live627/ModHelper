@@ -9,7 +9,7 @@ namespace ModHelper;
  * @package ModHelper
  * @since 2.0
  */
-class Set implements Interfaces\Set
+class Set extends Collection implements Interfaces\Set
 {
     /**
      * Creates a new Set

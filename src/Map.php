@@ -9,7 +9,7 @@ namespace ModHelper;
  * @package ModHelper
  * @since 2.0
  */
-class Map implements Interfaces\Map
+class Map extends Collection implements Interfaces\Map
 {
     /**
      * Creates a new Map
