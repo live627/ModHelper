@@ -64,6 +64,7 @@ class MapTest extends \PHPUnit_Framework_TestCase {
         $items = [$key1 => $item1, $key2 => $item2, $key3 => $item3];
 
         $map = new Map($items);
+        var_dump($items, $map->toArray());
         $this->assertSame($items, $map->toArray());
     }
 
