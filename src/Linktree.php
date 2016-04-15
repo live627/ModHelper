@@ -18,7 +18,7 @@ class Linktree
     {
         global $context;
 
-        foreach ($this->collection as $name, $url, $before, $after)) {
+        foreach ($this->collection as list ($name, $url, $before, $after)) {
             $item = array(
                 'name' => $name,
             );
