@@ -24,8 +24,8 @@ class LinktreeTest extends \PHPUnit_Framework_TestCase
 
         $context['linktree'] = [];
 
-        $container = new ContainerBuilder();
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+        $container = new Container();
+        $loader = new YamlFileLoader(new ContainerBuilder($container), new FileLocator(__DIR__));
         $loader->load('services.yml');
         $this->l = $container['linktree'];
         // $this->l = $container->get('linktree');

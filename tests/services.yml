@@ -2,7 +2,7 @@ parameters:
   my.hooks:
     - [Foo, /vendor/foo]
     - [BarDoom, /vendor/foo.bardoom]
-   my.links:
+  my.links:
     - - Foo
       - /vendor/foo
       - before foo
