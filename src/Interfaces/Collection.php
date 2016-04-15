@@ -9,13 +9,4 @@ namespace ModHelper\Interfaces;
  * @package ModHelper
  * @since 2.0
  */
-interface Collection extends \Countable, \IteratorAggregate
-{
-    /**
-     * The array that holds all the items collected by the object.
-     *
-     * @var array
-     * @access private
-     */
-    private $items = array();
-}
+interface Collection extends \Countable, \IteratorAggregate {}
