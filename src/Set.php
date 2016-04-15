@@ -85,9 +85,6 @@ class Set extends Collection implements Interfaces\Set
         return new Set(array_map($callback, $this->items));
     }
 
-    /**
-     /* @return Set
-     */
     public function filter(callable $callback) {
         return new Set(array_values(array_filter($this->items, $callback)));
     }
