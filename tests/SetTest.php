@@ -15,24 +15,28 @@ class SetTest extends \PHPUnit_Framework_TestCase {
         $set = new Set();
         $set->add($item1);
 
-        $this->assertEquals(1, $set->size());
+        $this->assertCount(1, $set);
 
         $set->remove($item1);
 
-        $this->assertEquals(0, $set->size());
+        $this->assertCount(0, $set);
 
         $set->addAll($items);
 
-        $this->assertEquals(2, $set->size());
-        $this->assertSame($items, $set->toArray());
+        $this->assertCount(2, $set);
+        $this->assertSame($items, $set->values()->toArray());
 
         $set->add($item3);
 
-        $this->assertEquals(3, $set->size());
+        $this->assertCount(3, $set);
 
         $set->removeAll($items);
 
-        $this->assertEquals(1, $set->size());
+        $this->assertCount(1, $set);
+
+        $set->addAll($items);
+        $set->clear();
+        $this->assertCount(0, $set);
     }
 
     public function testDuplicateValues() {
@@ -41,7 +45,7 @@ class SetTest extends \PHPUnit_Framework_TestCase {
         $set = new Set();
         $set->add($item1)->add($item1)->add($item1);
 
-        $this->assertEquals(1, $set->size());
+        $this->assertCount(1, $set);
     }
 
     public function testContains() {

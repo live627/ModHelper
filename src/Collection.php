@@ -21,15 +21,11 @@ abstract class Collection implements Interfaces\Collection
     protected $items = array();
 
     public function count() {
-        return $this->size();
-    }
-
-    public function size() {
         return count($this->items);
     }
 
     public function isEmpty() {
-        return $this->size() == 0;
+        return count($this) == 0;
     }
 
     public function clear() {

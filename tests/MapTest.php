@@ -21,33 +21,33 @@ class MapTest extends \PHPUnit_Framework_TestCase {
         $map = new Map();
         $map->set($key1, $item1);
 
-        $this->assertEquals(1, $map->size());
+        $this->assertCount(1, $map);
         $this->assertEquals($item1, $map->get($key1));
         $this->assertTrue($map->has($key1));
         $this->assertFalse($map->has($key2));
 
         $map->remove($key1);
 
-        $this->assertEquals(0, $map->size());
+        $this->assertCount(0, $map);
 
         $map->setAll($items);
 
-        $this->assertEquals(2, $map->size());
+        $this->assertCount(2, $map);
         $this->assertEquals($keys, $map->keys());
         $this->assertEquals($values, $map->values());
 
         $map->set($key3, $item3);
 
-        $this->assertEquals(3, $map->size());
+        $this->assertCount(3, $map);
 
         $map->clear();
-        $this->assertEquals(0, $map->size());
+        $this->assertCount(0, $map);
 
         $dupKeyItems = [$key1 => $item1, $key2 => $item2];
         $map->setAll($dupKeyItems);
         $map->set($key2, $item3);
 
-        $this->assertEquals(2, $map->size());
+        $this->assertCount(2, $map);
         $this->assertEquals($item3, $map->get($key2));
 
         $this->assertEmpty($map->get('non_existing_key'));
@@ -64,7 +64,6 @@ class MapTest extends \PHPUnit_Framework_TestCase {
         $items = [$key1 => $item1, $key2 => $item2, $key3 => $item3];
 
         $map = new Map($items);
-        var_dump($items, $map->toArray());
         $this->assertSame($items, $map->toArray());
     }
 
@@ -90,7 +89,7 @@ class MapTest extends \PHPUnit_Framework_TestCase {
         $map = new Map();
         $map['a'] = 'b';
 
-        $this->assertEquals(1, $map->size());
+        $this->assertCount(1, $map);
         $this->assertTrue($map->has('a'));
         $this->assertFalse($map->has('c'));
         $this->assertTrue($map->contains('b'));
@@ -106,7 +105,7 @@ class MapTest extends \PHPUnit_Framework_TestCase {
         unset($map['a']);
 
         $this->assertFalse($map->has('a'));
-        $this->assertEquals(0, $map->size());
+        $this->assertCount(0, $map);
 
     }
 }
