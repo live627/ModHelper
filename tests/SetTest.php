@@ -35,8 +35,9 @@ class SetTest extends \PHPUnit_Framework_TestCase {
         $this->assertCount(1, $set);
 
         $set->addAll($items);
+        $this->assertFalse($set->isEmpty());
         $set->clear();
-        $this->assertCount(0, $set);
+        $this->assertTrue($set->isEmpty());
     }
 
     public function testDuplicateValues() {
