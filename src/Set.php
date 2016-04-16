@@ -31,7 +31,10 @@ class Set extends Collection implements Interfaces\Set
      */
     public function add($item)
     {
-        $this->items[] = $item;
+        $index = array_search($item, $this->items, true);
+        if ($index !== null) {
+            $this->items[] = $item;
+        }
         return $this;
     }
 
@@ -39,14 +42,11 @@ class Set extends Collection implements Interfaces\Set
      * Adds all items to the set
      *
      * @param array|Collection $items
-     * @return Set $this
      */
     public function addAll($items) {
         foreach ($items as $item) {
             $this->add($item);
         }
-
-        return $this;
     }
 
     /**
@@ -63,7 +63,6 @@ class Set extends Collection implements Interfaces\Set
         if ($index !== null) {
             unset($this->items[$index]);
         }
-
         return $this;
     }
 
