@@ -16,9 +16,9 @@ abstract class Collection implements Interfaces\Collection
      * The array that holds all the items collected by the object.
      *
      * @var array
-     * @access private
+     * @access protected
      */
-    private $items = array();
+    protected $items = array();
 
     public function count() {
         return $this->size();
