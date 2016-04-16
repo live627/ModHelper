@@ -16,9 +16,8 @@ class Map extends Collection implements Interfaces\Map
      *
      * @param array|Map $data
      */
-    public function __construct($items) {
+    public function __construct($items = []) {
         $this->setAll($items);
-        var_dump($items, $this->items);
     }
 
     /**
