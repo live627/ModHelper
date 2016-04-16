@@ -31,8 +31,7 @@ class Set extends Collection implements Interfaces\Set
      */
     public function add($item)
     {
-        $index = array_search($item, $this->items, true);
-        if ($index === null) {
+        if (!$this->contains($item)) {
             $this->items[] = $item;
         }
         return $this;
