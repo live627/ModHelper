@@ -4,8 +4,8 @@ namespace ModHelper\Tests;
 
 class Thing extends \ModHelper\Enum
 {
-    const FOO = "foo";
-    const BAR = "bar";
+    const FOO = 'foo';
+    const BAR = 'bar';
     const NUMBER = 42;
     const PROBLEMATIC_NUMBER = 0;
     const PROBLEMATIC_NULL = null;
@@ -27,25 +27,11 @@ class EnumTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Thing::NUMBER, $value->getValue());
     }
 
-    /**
-     * @dataProvider getKeyProvider
-     */
     public function testGetKey($value, $expected)
     {
-        $this->assertSame($expected, Thing::getKey($value));
-    }
-
-    public function getKeyProvider()
-    {
-        return array(
-            array('foo', 'FOO'),
-            array(0, 'PROBLEMATIC_NUMBER'),
-            array(null, 'PROBLEMATIC_NULL'),
-            array('', 'PROBLEMATIC_EMPTY_STRING'),
-            array(false, 'PROBLEMATIC_BOOLEAN_FALSE'),
-            array('bar I do not exist', false),
-            array(array(), false),
-        );
+        $value = new Thing(Thing::FOO);
+        $this->assertEquals('FOO', $value->getKey());
+        $this->assertNotEquals('BA', $value->getKey());
     }
 
     /**
@@ -55,7 +41,7 @@ class EnumTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(
             '\UnexpectedValueException',
-            'Value \'' . $value . '\' is not part of the enum ModHelper\Tests\Enum\Thing'
+            'Value \'' . $value . '\' is not part of the enum ModHelper\Tests\Thing'
         );
 
         new Thing($value);
@@ -63,8 +49,8 @@ class EnumTest extends \PHPUnit_Framework_TestCase
 
     public function invalidValueProvider() {
         return array(
-            "string" => array('test'),
-            "int" => array(1234),
+            'string' => array('test'),
+            'int' => array(1234),
         );
     }
 
@@ -88,13 +74,13 @@ class EnumTest extends \PHPUnit_Framework_TestCase
     {
         $values = Thing::keys();
         $expectedValues = array(
-            "FOO",
-            "BAR",
-            "NUMBER",
-            "PROBLEMATIC_NUMBER",
-            "PROBLEMATIC_NULL",
-            "PROBLEMATIC_EMPTY_STRING",
-            "PROBLEMATIC_BOOLEAN_FALSE",
+            'FOO',
+            'BAR',
+            'NUMBER',
+            'PROBLEMATIC_NUMBER',
+            'PROBLEMATIC_NULL',
+            'PROBLEMATIC_EMPTY_STRING',
+            'PROBLEMATIC_BOOLEAN_FALSE',
         );
 
         $this->assertSame($expectedValues, $values);
@@ -104,13 +90,13 @@ class EnumTest extends \PHPUnit_Framework_TestCase
     {
         $values = Thing::values();
         $expectedValues = array(
-            "FOO"                       => new Thing(Thing::FOO),
-            "BAR"                       => new Thing(Thing::BAR),
-            "NUMBER"                    => new Thing(Thing::NUMBER),
-            "PROBLEMATIC_NUMBER"        => new Thing(Thing::PROBLEMATIC_NUMBER),
-            "PROBLEMATIC_NULL"          => new Thing(Thing::PROBLEMATIC_NULL),
-            "PROBLEMATIC_EMPTY_STRING"  => new Thing(Thing::PROBLEMATIC_EMPTY_STRING),
-            "PROBLEMATIC_BOOLEAN_FALSE" => new Thing(Thing::PROBLEMATIC_BOOLEAN_FALSE),
+            'FOO'                       => new Thing(Thing::FOO),
+            'BAR'                       => new Thing(Thing::BAR),
+            'NUMBER'                    => new Thing(Thing::NUMBER),
+            'PROBLEMATIC_NUMBER'        => new Thing(Thing::PROBLEMATIC_NUMBER),
+            'PROBLEMATIC_NULL'          => new Thing(Thing::PROBLEMATIC_NULL),
+            'PROBLEMATIC_EMPTY_STRING'  => new Thing(Thing::PROBLEMATIC_EMPTY_STRING),
+            'PROBLEMATIC_BOOLEAN_FALSE' => new Thing(Thing::PROBLEMATIC_BOOLEAN_FALSE),
         );
 
         $this->assertEquals($expectedValues, $values);
@@ -120,13 +106,13 @@ class EnumTest extends \PHPUnit_Framework_TestCase
     {
         $values = Thing::toArray();
         $expectedValues = array(
-            "FOO"                   => Thing::FOO,
-            "BAR"                   => Thing::BAR,
-            "NUMBER"                => Thing::NUMBER,
-            "PROBLEMATIC_NUMBER"    => Thing::PROBLEMATIC_NUMBER,
-            "PROBLEMATIC_NULL"      => Thing::PROBLEMATIC_NULL,
-            "PROBLEMATIC_EMPTY_STRING"    => Thing::PROBLEMATIC_EMPTY_STRING,
-            "PROBLEMATIC_BOOLEAN_FALSE"    => Thing::PROBLEMATIC_BOOLEAN_FALSE,
+            'FOO'                   => Thing::FOO,
+            'BAR'                   => Thing::BAR,
+            'NUMBER'                => Thing::NUMBER,
+            'PROBLEMATIC_NUMBER'    => Thing::PROBLEMATIC_NUMBER,
+            'PROBLEMATIC_NULL'      => Thing::PROBLEMATIC_NULL,
+            'PROBLEMATIC_EMPTY_STRING'    => Thing::PROBLEMATIC_EMPTY_STRING,
+            'PROBLEMATIC_BOOLEAN_FALSE'    => Thing::PROBLEMATIC_BOOLEAN_FALSE,
         );
 
         $this->assertSame($expectedValues, $values);
