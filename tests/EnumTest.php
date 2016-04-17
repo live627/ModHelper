@@ -27,7 +27,7 @@ class EnumTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Thing::NUMBER, $value->getValue());
     }
 
-    public function testGetKey($value, $expected)
+    public function testGetKey()
     {
         $value = new Thing(Thing::FOO);
         $this->assertEquals('FOO', $value->getKey());
