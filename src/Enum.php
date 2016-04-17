@@ -90,7 +90,7 @@ abstract class Enum
     {
         $class = static::class;
         if (!array_key_exists($class, static::$cache)) {
-            static::$cache[$class] = (new \ReflectionClass)($class)->getConstants();
+            static::$cache[$class] = (new \ReflectionClass($class))->getConstants();
         }
 
         return static::$cache[$class];
